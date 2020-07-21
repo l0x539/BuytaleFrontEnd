@@ -54,15 +54,16 @@ class App extends Component {
               />
             ))}
 
-            {authProtectedRoutes.map((route, idx) => (
-              <AppRoute
-                path={route.path}
+            {authProtectedRoutes.map((route, idx) => {
+              console.log(route);
+              return (<AppRoute
+                exact path={route.path}
                 component={route.component}
                 layout={Layout}
                 key={idx}
                 isAuthProtected={true}
-              />
-            ))}
+              />)
+            })}
             
           </Switch>
         </Router>

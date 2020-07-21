@@ -2,24 +2,23 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 
 //Import Action to copy breadcrumb items from local state to redux state
-import { setBreadcrumbItems } from "../../../../store/actions";
+import { setBreadcrumbItems } from "../../../store/actions";
 
 
-class Coupons extends Component {
+class PendingCommands extends Component {
     constructor(props) {
         super(props);
         this.state = {
             breadcrumbItems : [
                 { title : "Buytale", link : "/" },
-                { title : "Webstore", link : "#" },
-                { title : "Basket Settings", link : "#" },
-                { title : "Maximum Coupons Per Basket", link : "/basketsettings/coupons" },
+                { title : "Fraud", link : "#" },
+                { title : "Pending Commands", link : "/Settings/chargebacks/pendingcommands" },
             ],
         }
     } 
 
     componentDidMount(){
-        this.props.setBreadcrumbItems("Maximum Coupons Per Basket", this.state.breadcrumbItems);
+        this.props.setBreadcrumbItems("Pending Commands", this.state.breadcrumbItems);
     }
 
     render() {
@@ -31,4 +30,4 @@ class Coupons extends Component {
     }
 }
 
-export default connect(null, { setBreadcrumbItems })(Coupons)
+export default connect(null, { setBreadcrumbItems })(PendingCommands)

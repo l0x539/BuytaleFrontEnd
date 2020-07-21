@@ -66,14 +66,12 @@ class SidebarContent extends Component {
           var ul = document.getElementById("side-menu");
           var items = ul.getElementsByTagName("a");
           for (var i = 0; i < items.length; ++i) {
-            console.log(this.props.location.pathname, items[i].pathname)
             if (this.props.location.pathname === items[i].pathname) {
               matchingMenuItem = items[i];
               break;
             }
           }
           if (matchingMenuItem) {
-            console.log(matchingMenuItem)
             this.activateParentDropdown(matchingMenuItem);
           }
         
@@ -215,7 +213,7 @@ class SidebarContent extends Component {
                                 <li><Link to="/webstorecontent/homepage">Homepage</Link></li>
                                 <li><Link to="/design/sidebar">Sidebar</Link></li>
                                 <li><Link to="/ToS">Terms and Conditions</Link></li>
-                                <li><Link to="/paymentcomplete">Payment Complete Page</Link></li>
+                                <li><Link to="/webstorecontent/paymentcomplete">Payment Complete Page</Link></li>
                         </ul>
                     </li>
                     <li>
@@ -255,10 +253,10 @@ class SidebarContent extends Component {
                 <span>Commands</span>
             </Link>
             <ul className="sub-menu" aria-expanded="false">
-                <li><Link to="/#">Global Commands</Link></li>
-                <li><Link to="/#">Global Discord Actions</Link></li>
-                <li><Link to="/#">Command Expiry</Link></li>
-                <li><Link to="/#">Resend Commands</Link></li>
+                <li><Link to="/commands/global">Global Commands</Link></li>
+                <li><Link to="/actions/global">Global Discord Actions</Link></li>
+                <li><Link to="/commands/expiry">Command Expiry</Link></li>
+                <li><Link to="/commands/resend">Resend Commands</Link></li>
             </ul>
         </li>
 
@@ -268,13 +266,13 @@ class SidebarContent extends Component {
                 <span>Fraud</span>
             </Link>
             <ul className="sub-menu" aria-expanded="false">
-                <li><Link to="/#">Charge Back Prevention</Link></li>
-                <li><Link to="/#">Gift Card Purchase Chargebacks</Link></li>
-                <li><Link to="/#">Pending Commands</Link></li>
-                <li><Link to="/#">Chargeback Resolution Behaviour</Link></li>
-                <li><Link to="/#">Spending Limit</Link></li>
-                <li><Link to="/#">GEO-IP Address Verification</Link></li>
-                <li><Link to="/#">IP Checks</Link></li>
+                <li><Link to="/settings/chargebacks">Charge Back Prevention</Link></li>
+                <li><Link to="/giftcards/chargebacks">Gift Card Purchase Chargebacks</Link></li>
+                <li><Link to="/Settings/chargebacks/pendingcommands">Pending Commands</Link></li>
+                <li><Link to="/Settings/chargebacks/resolution">Chargeback Resolution Behaviour</Link></li>
+                <li><Link to="/Settings/chargebacks/spendinglimit">Spending Limit</Link></li>
+                <li><Link to="/Settings/chargebacks/geoip">GEO-IP Address Verification</Link></li>
+                <li><Link to="/ipchecks">IP Checks</Link></li>
             </ul>
         </li>
 
@@ -284,14 +282,14 @@ class SidebarContent extends Component {
                 <span>Engagement</span>
             </Link>
             <ul className="sub-menu" aria-expanded="false">
-                <li><Link to="/#">Coupons</Link></li>
-                <li><Link to="/#">Sales</Link></li>
-                <li><Link to="/#">Gift Cards</Link></li>
-                <li><Link to="/#">Community Goals</Link></li>
-                <li><Link to="/#">Player Referrals</Link></li>
-                <li><Link to="/#">Abandoned Basket Recovery</Link></li>
-                <li><Link to="/#">Purchase Follow-ups</Link></li>
-                <li><Link to="/#">Webstore Referrals</Link></li>
+                <li><Link to="/coupons">Coupons</Link></li>
+                <li><Link to="/sales">Sales</Link></li>
+                <li><Link to="/giftcards">Gift Cards</Link></li>
+                <li><Link to="/community-goals">Community Goals</Link></li>
+                <li><Link to="/player-referrals">Player Referrals</Link></li>
+                <li><Link to="/recovery">Abandoned Basket Recovery</Link></li>
+                <li><Link to="/purchasefollowup">Purchase Follow-ups</Link></li>
+                <li><Link to="/referrals">Webstore Referrals</Link></li>
             </ul>
         </li>
 
@@ -301,38 +299,38 @@ class SidebarContent extends Component {
                 <span>Integrations</span>
             </Link>
             <ul className="sub-menu" aria-expanded="false">
-                <li><Link to="/#">Plugins</Link></li>
-                <li><Link to="/#">Servers</Link></li>
-                <li><Link to="/#">Webhooks</Link></li>
-                <li><Link to="/#">Player Verification</Link></li>
-                <li><Link to="/#">Notifications</Link></li>
-                <li><Link to="/#">API Keys</Link></li>
+                <li><Link to="/plugins">Plugins</Link></li>
+                <li><Link to="/settings/servers">Servers</Link></li>
+                <li><Link to="/webhooks">Webhooks</Link></li>
+                <li><Link to="/player-verification">Player Verification</Link></li>
+                <li><Link to="/notifications">Notifications</Link></li>
+                <li><Link to="/api-keys">API Keys</Link></li>
             </ul>
         </li>
 
         <li>
-            <Link to="/#" className="waves-effect">
+            <Link to="/shields" className="waves-effect">
                 <i className="mdi mdi-account-group"></i>
                 <span>Shields</span>
             </Link>
         </li>
 
         <li>
-            <Link to="/#" className="waves-effect">
+            <Link to="/privacy" className="waves-effect">
                 <i className="mdi mdi-lock"></i>
                 <span>Privacy</span>
             </Link>
         </li>
 
         <li>
-            <Link to="/#" className="waves-effect">
+            <Link to="/team" className="waves-effect">
                 <i className="mdi mdi-account-group"></i>
                 <span>Team</span>
             </Link>
         </li>
 
         <li>
-            <Link to="/#" className="waves-effect">
+            <Link to="/billing" className="waves-effect">
                 <i className="fas fa-wallet"></i>
                 <span>Billing</span>
             </Link>
@@ -345,17 +343,23 @@ class SidebarContent extends Component {
         <li className="menu-title">Your Profile</li>
 
         <li>
-            <Link to="/#" className="waves-effect">
+            <Link to="/webstores" className="waves-effect">
                 <i className="mdi mdi-store"></i>
                 <span>Webstores</span>
             </Link>
         </li>
 
         <li>
-            <Link to="/#" className="waves-effect">
+            <Link to="/#" className="has-arrow waves-effect">
                 <i className="mdi mdi-settings"></i>
                 <span>Settings</span>
             </Link>
+            <ul className="sub-menu" aria-expanded="false">
+                <li><Link to="/Profile">Profile</Link></li>
+                <li><Link to="/profile/log">Activity Log</Link></li>
+                <li><Link to="/accountsettings/tfa">Two Factor Authentication</Link></li>
+                <li><Link to="/profile/emails">Email Preferences</Link></li>
+            </ul>
         </li>
 
     </ul>

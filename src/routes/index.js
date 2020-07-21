@@ -48,7 +48,7 @@ import Gifting from '../pages/buytale_pages/Webstore/Basket/Gifting';
 import Free from '../pages/buytale_pages/Webstore/Basket/Free';
 import Minimum from '../pages/buytale_pages/Webstore/Basket/Minimum';
 import Details from '../pages/buytale_pages/Webstore/Basket/Details';
-import Coupons from '../pages/buytale_pages/Webstore/Basket/Coupons';
+import BasketCoupons from '../pages/buytale_pages/Webstore/Basket/BasketCoupons';
 import Honour from '../pages/buytale_pages/Webstore/Basket/Honour';
 import OrderStatusPage from '../pages/buytale_pages/Webstore/Basket/OrderStatusPage';
 import AddToBasketRedirect from '../pages/buytale_pages/Webstore/Basket/AddToBasketRedirect';
@@ -62,6 +62,61 @@ import CC from '../pages/buytale_pages/Webstore/Emails/CC';
 import Disable from '../pages/buytale_pages/Webstore/Emails/Disable';
 
 import DomainName from '../pages/buytale_pages/Webstore/DomainName';
+
+//Commands
+import Global from '../pages/buytale_pages/Commands/Global';
+import AcionsGlobal from '../pages/buytale_pages/Commands/AcionsGlobal';
+import Expiry from '../pages/buytale_pages/Commands/Expiry';
+import Resend from '../pages/buytale_pages/Commands/Resend';
+
+//Fraud
+import ChargeBacks from '../pages/buytale_pages/Fraud/ChargeBacks';
+import GiftChargeBacks from '../pages/buytale_pages/Fraud/GiftChargeBacks';
+import PendingCommands from '../pages/buytale_pages/Fraud/PendingCommands';
+import Resolution from '../pages/buytale_pages/Fraud/Resolution';
+import SpendingLimit from '../pages/buytale_pages/Fraud/SpendingLimit';
+import GeoIp from '../pages/buytale_pages/Fraud/GeoIp';
+import IpChecks from '../pages/buytale_pages/Fraud/IpChecks';
+
+//Engagement
+import Coupons from '../pages/buytale_pages/Engagement/Coupons';
+import Sales from '../pages/buytale_pages/Engagement/Sales';
+import GiftCards from '../pages/buytale_pages/Engagement/GiftCards';
+import CommunityGoals from '../pages/buytale_pages/Engagement/CommunityGoals';
+import PlayerReferrals from '../pages/buytale_pages/Engagement/PlayerReferrals';
+import Recovery from '../pages/buytale_pages/Engagement/Recovery';
+import PurchaseFollowUp from '../pages/buytale_pages/Engagement/PurchaseFollowUp';
+import Referrals from '../pages/buytale_pages/Engagement/Referrals';
+
+//Integrations
+import Plugins from '../pages/buytale_pages/Integrations/Plugins';
+import Servers from '../pages/buytale_pages/Integrations/Servers';
+import Webhooks from '../pages/buytale_pages/Integrations/Webhooks';
+import PlayerVerification from '../pages/buytale_pages/Integrations/PlayerVerification';
+import Notifications from '../pages/buytale_pages/Integrations/Notifications';
+import ApiKey from '../pages/buytale_pages/Integrations/ApiKey';
+
+//Statistics
+import Shields from '../pages/buytale_pages/Shields/Shields';
+
+//Statistics
+import Privacy from '../pages/buytale_pages/Privacy/Privacy';
+
+//Statistics
+import Team from '../pages/buytale_pages/Team/Team';
+
+//Statistics
+import Billing from '../pages/buytale_pages/Billing/Billing';
+
+// Your Profile
+//Webstores
+import Webstores from '../pages/buytale_pages/Webstores/Webstores';
+
+//Settings
+import Profile from '../pages/buytale_pages/Settings/Profile';
+import Log from '../pages/buytale_pages/Settings/Log';
+import Tfa from '../pages/buytale_pages/Settings/Tfa';
+import Emails from '../pages/buytale_pages/Settings/Emails';
 
 const authProtectedRoutes = [
   // DashBoard
@@ -101,7 +156,7 @@ const authProtectedRoutes = [
   { path: "/basketsettings/free", component: Free },
   { path: "/basketsettings/minimum", component: Minimum },
   { path: "/basketsettings/details", component: Details },
-  { path: "/basketsettings/coupons", component: Coupons },
+  { path: "/basketsettings/coupons", component: BasketCoupons },
   { path: "/giftcards/honour", component: Honour },
   { path: "/orderstatuspage", component: OrderStatusPage },
   { path: "/basketsettings/add-to-cart-redirect", component: AddToBasketRedirect },
@@ -115,6 +170,61 @@ const authProtectedRoutes = [
   { path: "/emailsettings/disable", component: Disable },
 
   { path: "/settings/domain-name", component: DomainName },
+
+  // Commands
+  { path: "/commands/global", component: Global },
+  { path: "/actions/global", component: AcionsGlobal },
+  { path: "/commands/expiry", component: Expiry },
+  { path: "/commands/resend", component: Resend },
+
+  // Fraud
+  { path: "/settings/chargebacks", component: ChargeBacks },
+  { path: "/giftcards/chargebacks", component: GiftChargeBacks },
+  { path: "/Settings/chargebacks/pendingcommands", component: PendingCommands },
+  { path: "/Settings/chargebacks/resolution", component: Resolution },
+  { path: "/Settings/chargebacks/spendinglimit", component: SpendingLimit },
+  { path: "/Settings/chargebacks/geoip", component: GeoIp },
+  { path: "/ipchecks", component: IpChecks },
+
+  // Engagement
+  { path: "/coupons", component: Coupons },
+  { path: "/sales", component: Sales },
+  { path: "/giftcards", component: GiftCards },
+  { path: "/community-goals", component: CommunityGoals },
+  { path: "/player-referrals", component: PlayerReferrals },
+  { path: "/recovery", component: Recovery },
+  { path: "/purchasefollowup", component: PurchaseFollowUp },
+  { path: "/referrals", component: Referrals },
+
+  // Integrations
+  { path: "/plugins", component: Plugins },
+  { path: "/settings/servers", component: Servers },
+  { path: "/webhooks", component: Webhooks },
+  { path: "/player-verification", component: PlayerVerification },
+  { path: "/notifications", component: Notifications },
+  { path: "/api-keys", component: ApiKey },
+
+  // Shields
+  { path: "/shields", component: Shields },
+
+  // Privacy
+  { path: "/privacy", component: Privacy },
+
+  // Team
+  { path: "/team", component: Team },
+  
+  // Billing
+  { path: "/billing", component: Billing },
+
+
+  //Webstores
+  { path: "/webstores", component: Webstores },
+
+  //Settings
+  { path: "/Profile", component: Profile },
+  { path: "/profile/log", component: Log },
+  { path: "/accountsettings/tfa", component: Tfa },
+  { path: "/profile/emails", component: Emails },
 
   { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> }
 ];
