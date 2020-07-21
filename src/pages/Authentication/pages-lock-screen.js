@@ -3,7 +3,7 @@ import { Container, Row, Col, Card, CardBody, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 import logodark from "../../assets/images/logo-dark.png";
-import user from "../../assets/images/users/user-6.jpg";
+import { randomAvatar } from '../../helpers/randomAvatar'
 
 class LockScreen extends Component {
 
@@ -25,7 +25,7 @@ class LockScreen extends Component {
                                             <AvForm className="form-horizontal mt-4">
 
                                                 <div className="user-thumb text-center mb-4">
-                                                    <img src={user} className="rounded-circle avatar-md img-thumbnail" alt="thumbnail"/>
+                                                    <img src={randomAvatar()} className="rounded-circle avatar-md img-thumbnail" alt="thumbnail"/>
                                                     <h6 className="font-size-16 mt-3">Robert Smith</h6>
                                                 </div>
 

@@ -10,7 +10,7 @@ class Breadcrumb extends Component {
     render() {
         const data = {
             columns: [
-                ['Sold', 8, 6, 4, 7, 10, 12, 7, 4, 9, 12, 13, 11, 12],
+                ['Sold', 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
             ],
             type: 'bar',
             labels: false,
@@ -19,7 +19,7 @@ class Breadcrumb extends Component {
 
         const data1 = {
             columns: [
-                ['Balance', 8, 6, 4, 7, 10, 12, 7, 4, 9, 12, 13, 11, 12],
+                ['Balance', 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6],
             ],
             type: 'bar',
             labels: false,
@@ -80,11 +80,11 @@ class Breadcrumb extends Component {
                                     
                                 <C3Chart data={data1} legend={legend} axis={axis} bar={bar} size={size} padding={padding} />
                                     
-                                    <div className="info">Balance $ 2,317</div>
+                                    <div className="info">Balance $ 0,0</div>
                                 </div>
                                 <div className="state-graph">
                                 <C3Chart data={data} legend={legend} axis={axis} bar={bar} size={size} padding={padding} />
-                                    <div className="info">Item Sold 1230</div>
+                                    <div className="info">Item Sold 0</div>
                                 </div>
                             </div>
                         </Col>

@@ -7,9 +7,9 @@ class MonthlyEarnings extends Component {
     render() {
         const data = {
             columns: [
-                ["Download Sales",12],
-                ["In-Store Sales",30],
-                ["Mail Order Sales",20]
+                ["Category1 Sales",33.3],
+                ["Category2 Sales",33.3],
+                ["CategoryN Sales",33.3]
             ],
             type:"donut",
           };
@@ -35,11 +35,11 @@ class MonthlyEarnings extends Component {
                                 <h4 className="card-title mb-4">Monthly Earnings</h4>
                                     <Row className="text-center mt-4">
                                         <Col xs="6">
-                                            <h5 className="font-size-20">$56241</h5>
+                                            <h5 className="font-size-20">$0</h5>
                                             <p className="text-muted">Marketplace</p>
                                         </Col>
                                         <Col xs="6">
-                                            <h5 className="font-size-20">$23651</h5>
+                                            <h5 className="font-size-20">$0</h5>
                                             <p className="text-muted">Total Income</p>
                                         </Col>
                                     </Row>

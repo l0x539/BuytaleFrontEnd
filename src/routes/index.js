@@ -1,158 +1,120 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 
+// Auth Pages
 import Pageslogin from '../pages/Authentication/Login';
 import Logout from '../pages/Authentication/Logout';
 import Pagesregister from '../pages/Authentication/Register';
 import ForgetPassword from '../pages/Authentication/ForgetPassword';
 import LockScreen from "../pages/Authentication/pages-lock-screen";
 
+//Errors Pages
+import Pages404 from "../pages/Extra Pages/pages-404";
+import Pages500 from "../pages/Extra Pages/pages-500";
+
 //Dashboard
 import Dashboard from '../pages/Dashboard/dashboard';
 
-//Calender
-import Calendar from "../pages/Calendar/calendar";
+//Payments
+import Payments from '../pages/buytale_pages/Payments/Payments';
+import Subscription from '../pages/buytale_pages/Payments/Subscription';
+import Agreement from '../pages/buytale_pages/Payments/Agreement';
+import Gateway from '../pages/buytale_pages/Payments/Gateway';
+import Taxes from '../pages/buytale_pages/Payments/Taxes';
+import Exports from '../pages/buytale_pages/Payments/Exports';
 
-//Email
-import EmailInbox from '../pages/Email/email-inbox';
-import EmailRead from "../pages/Email/email-read";
-import EmailCompose from "../pages/Email/email-compose";
+//Statistics
+import Statistics from '../pages/buytale_pages/Statistics/Statistics';
 
-//UI Elements
-import UiAlerts from "../pages/UI Elements/ui-alerts";
-import UiButtons from "../pages/UI Elements/ui-buttons";
-import UiBadge from "../pages/UI Elements/ui-badge";
-import UiCards from "../pages/UI Elements/ui-cards";
-import UiCarousel from "../pages/UI Elements/ui-carousel";
-import UiDropdown from "../pages/UI Elements/ui-dropdowns";
-import UiGrid from "../pages/UI Elements/ui-grid";
-import UiImages from "../pages/UI Elements/ui-images";
-import UiLightbox from "../pages/UI Elements/ui-lightbox";
-import UiModal from "../pages/UI Elements/ui-modals";
-import UiPagination from "../pages/UI Elements/ui-pagination";
-import UiPopoverTooltips from "../pages/UI Elements/ui-popover-tooltips";
-import UiProgressbar from "../pages/UI Elements/ui-progressbars";
-import UiSweetAlert from "../pages/UI Elements/ui-sweet-alert";
-import UiTabsAccordions from "../pages/UI Elements/ui-tabs-accordions";
-import UiTypography from "../pages/UI Elements/ui-typography";
-import UiVideo from "../pages/UI Elements/ui-video";
-import UiSessionTimeout from "../pages/UI Elements/ui-session-timeout";
-import UiRangeSlider from "../pages/UI Elements/ui-rangeslider";
+//Players
+import Lookup from '../pages/buytale_pages/Players/Lookup';
+import Bans from '../pages/buytale_pages/Players/Bans';
+import WhiteList from '../pages/buytale_pages/Players/WhiteList';
 
-//Forms
-import FormElements from "../pages/Forms/form-elements";
-import FormValidations from "../pages/Forms/form-validation";
-import FormAdvanced from "../pages/Forms/form-advanced";
-import FormEditors from "../pages/Forms/form-editors";
-import FormUpload from "../pages/Forms/form-uploads";
-import FormXeditable from "../pages/Forms/form-xeditable";
+//Webstore
+import Packages from '../pages/buytale_pages/Webstore/Packages';
+import Variables from '../pages/buytale_pages/Webstore/Variables';
+import Pages from '../pages/buytale_pages/Webstore/Pages';
+//Webstore => Design
+import Appearence from '../pages/buytale_pages/Webstore/Design/Appearence';
+import Preferences from '../pages/buytale_pages/Webstore/Design/Preferences';
+import HomePage from '../pages/buytale_pages/Webstore/Design/HomePage';
+import SideBar from '../pages/buytale_pages/Webstore/Design/SideBar';
+import ToS from '../pages/buytale_pages/Webstore/Design/ToS';
+import PaymentComplete from '../pages/buytale_pages/Webstore/Design/PaymentComplete';
 
-//Charts
-import ChartsAppex from "../pages/Charts/charts-appex";
-import ChartsChartist from "../pages/Charts/charts-chartist";
-import ChartsJs from "../pages/Charts/charts-chartjs";
-import ChartsKnob from "../pages/Charts/charts-other";
-import ChartsC3 from "../pages/Charts/charts-c3";
-import ChartsSparkLine from "../pages/Charts/charts-sparkline";
+//Webstore => Basket Settings
+import Gifting from '../pages/buytale_pages/Webstore/Basket/Gifting';
+import Free from '../pages/buytale_pages/Webstore/Basket/Free';
+import Minimum from '../pages/buytale_pages/Webstore/Basket/Minimum';
+import Details from '../pages/buytale_pages/Webstore/Basket/Details';
+import Coupons from '../pages/buytale_pages/Webstore/Basket/Coupons';
+import Honour from '../pages/buytale_pages/Webstore/Basket/Honour';
+import OrderStatusPage from '../pages/buytale_pages/Webstore/Basket/OrderStatusPage';
+import AddToBasketRedirect from '../pages/buytale_pages/Webstore/Basket/AddToBasketRedirect';
 
-//Tables
-import BasicTables from "../pages/Tables/tables-basic";
-import DatatableTables from "../pages/Tables/tables-datatable";
-import ResponsiveTables from "../pages/Tables/tables-responsive";
-import EditableTables from "../pages/Tables/tables-editable";
+import Translations from '../pages/buytale_pages/Webstore/Translations';
+import Currency from '../pages/buytale_pages/Webstore/Currency';
 
-//Icons
-import IconDripicons from "../pages/Icons/icons-dripicons";
-import IconIon from "../pages/Icons/icons-ion";
-import IconMaterial from "../pages/Icons/icons-material";
-import IconFontawesome from "../pages/Icons/icons-fontawesome";
-import IconThemify from "../pages/Icons/icons-themify";
-import IconTypicons from "../pages/Icons/icons-typicons";
+//Webstore => Emails
+import StoreNote from '../pages/buytale_pages/Webstore/Emails/StoreNote';
+import CC from '../pages/buytale_pages/Webstore/Emails/CC';
+import Disable from '../pages/buytale_pages/Webstore/Emails/Disable';
 
-// Maps
-import MapsGoogle from "../pages/Maps/maps-google";
-import MapsVector from "../pages/Maps/maps-vector";
-
-//Extra Pages
-import PagesTimeline from "../pages/Extra Pages/pages-timeline";
-import PagesInvoice from "../pages/Extra Pages/pages-invoice";
-import PagesDirectory from "../pages/Extra Pages/pages-directory";
-import PagesBlank from "../pages/Extra Pages/pages-blank";
-import Pages404 from "../pages/Extra Pages/pages-404";
-import Pages500 from "../pages/Extra Pages/pages-500";
+import DomainName from '../pages/buytale_pages/Webstore/DomainName';
 
 const authProtectedRoutes = [
   // DashBoard
   { path: "/dashboard", component: Dashboard },
 
-  //Calendar
-  { path: "/calendar", component: Calendar },
+  // Payments
+  { path: "/payments", component: Payments },
+  { path: "/subscription", component: Subscription },
+  { path: "/agreement", component: Agreement },
+  { path: "/gateways", component: Gateway },
+  { path: "/taxes", component: Taxes },
+  { path: "/exports", component: Exports },
 
-  //Email
-  { path: "/email-inbox", component: EmailInbox },
-  { path: "/email-read", component: EmailRead },
-  { path: "/email-compose", component: EmailCompose },
+  // Statistics
+  { path: "/statistics", component: Statistics },
 
-  //UI Elements
-  { path: "/ui-alerts", component: UiAlerts },
-  { path: "/ui-buttons", component: UiButtons },
-  { path: "/ui-badge", component: UiBadge },
-  { path: "/ui-cards", component: UiCards },
-  { path: "/ui-carousel", component: UiCarousel },
-  { path: "/ui-dropdowns", component: UiDropdown },
-  { path: "/ui-grid", component: UiGrid },
-  { path: "/ui-images", component: UiImages },
-  { path: "/ui-lightbox", component: UiLightbox },
-  { path: "/ui-modals", component: UiModal },
-  { path: "/ui-pagination", component: UiPagination },
-  { path: "/ui-popover-tooltips", component: UiPopoverTooltips },
-  { path: "/ui-progressbars", component: UiProgressbar },
-  { path: "/ui-sweet-alert", component: UiSweetAlert },
-  { path: "/ui-tabs-accordions", component: UiTabsAccordions },
-  { path: "/ui-typography", component: UiTypography },
-  { path: "/ui-video", component: UiVideo },
-  { path: "/ui-session-timeout", component: UiSessionTimeout },
-  { path: "/ui-rangeslider", component: UiRangeSlider },
+  // Players
+  { path: "/lookup", component: Lookup },
+  { path: "/bans", component: Bans },
+  { path: "/whitelist", component: WhiteList },
 
-  //Forms
-  { path: "/form-elements", component: FormElements },
-  { path: "/form-validation", component: FormValidations },
-  { path: "/form-advanced", component: FormAdvanced },
-  { path: "/form-editors", component: FormEditors },
-  { path: "/form-uploads", component: FormUpload },
-  { path: "/form-xeditable", component: FormXeditable },
+  // Webstore
+  { path: "/packages", component: Packages },
+  { path: "/variables", component: Variables },
+  { path: "/pages", component: Pages },
 
-  //Charts
-  { path: "/charts-appex", component: ChartsAppex },
-  { path: "/charts-chartist", component: ChartsChartist },
-  { path: "/charts-chartjs", component: ChartsJs },
-  { path: "/charts-other", component: ChartsKnob },
-  { path: "/charts-c3", component: ChartsC3 },
-  { path: "/charts-sparkline", component: ChartsSparkLine },
+  // Webstore => Design
+  { path: "/design/appearence", component: Appearence },
+  { path: "/design/preferences", component: Preferences },
+  { path: "/webstorecontent/homepage", component: HomePage },
+  { path: "/design/sidebar", component: SideBar },
+  { path: "/ToS", component: ToS },
+  { path: "/webstorecontent/paymentcomplete", component: PaymentComplete },
 
-  // Tables
-  { path: "/tables-basic", component: BasicTables },
-  { path: "/tables-datatable", component: DatatableTables },
-  { path: "/tables-responsive", component: ResponsiveTables },
-  { path: "/tables-editable", component: EditableTables },
+  // Webstore => Basket Settings
+  { path: "/basketsettings/gifting", component: Gifting },
+  { path: "/basketsettings/free", component: Free },
+  { path: "/basketsettings/minimum", component: Minimum },
+  { path: "/basketsettings/details", component: Details },
+  { path: "/basketsettings/coupons", component: Coupons },
+  { path: "/giftcards/honour", component: Honour },
+  { path: "/orderstatuspage", component: OrderStatusPage },
+  { path: "/basketsettings/add-to-cart-redirect", component: AddToBasketRedirect },
 
-  // Icons
-  { path: "/icons-dripicons", component: IconDripicons },
-  { path: "/icons-ion", component: IconIon },
-  { path: "/icons-material", component: IconMaterial },
-  { path: "/icons-fontawesome", component: IconFontawesome },
-  { path: "/icons-themify", component: IconThemify },
-  { path: "/icons-typicons", component: IconTypicons },
+  { path: "/settings/translations", component: Translations },
+  { path: "/design/currency", component: Currency },
 
-  // Maps
-  { path: "/maps-google", component: MapsGoogle },
-  { path: "/maps-vector", component: MapsVector },
+  // Webstore => Emails
+  { path: "/emailsettings/storenote", component: StoreNote },
+  { path: "/emailsettings/cc", component: CC },
+  { path: "/emailsettings/disable", component: Disable },
 
-  //Extra Pages
-  { path: "/pages-timeline", component: PagesTimeline },
-  { path: "/pages-invoice", component: PagesInvoice },
-  { path: "/pages-directory", component: PagesDirectory },
-  { path: "/pages-blank", component: PagesBlank },
+  { path: "/settings/domain-name", component: DomainName },
 
   { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> }
 ];
@@ -162,9 +124,9 @@ const publicRoutes = [
   { path: "/login", component: Pageslogin },
   { path: "/register", component: Pagesregister },
   { path: '/forget-password', component: ForgetPassword },
-  { path: '/pages-lock-screen', component: LockScreen },
-  { path: "/pages-404", component: Pages404 },
-  { path: "/pages-500", component: Pages500 },
+  { path: '/lock-screen', component: LockScreen },
+  { path: "/404", component: Pages404 },
+  { path: "/500", component: Pages500 },
 ];
 
 export { authProtectedRoutes, publicRoutes };

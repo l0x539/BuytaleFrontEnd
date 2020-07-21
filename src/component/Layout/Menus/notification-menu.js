@@ -38,7 +38,7 @@ class NotificationMenu extends Component {
                             id="page-header-notifications-dropdown"
                         >
                             <i className="ti-bell"></i>
-                            <span className="badge badge-danger badge-pill">3</span>
+                            {/* <span className="badge badge-danger badge-pill">3</span> */}
                         </DropdownToggle>
                             <DropdownMenu right className="dropdown-menu-lg p-0">
                                 <div className="p-3">
