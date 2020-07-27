@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {
     hideRightSidebar,
     changeTopbarTheme,
-    changeLayout,
+    //changeLayout,
     changeSidebarTheme,
     changeLayoutWidth,
     changeSidebarType,
@@ -35,7 +35,7 @@ class RightSideBar extends Component {
             sidebarType: this.props.leftSideBarType,
             isPreloader: this.props.isPreloader
         }
-        this.changeLayout = this.changeLayout.bind(this);
+        //this.changeLayout = this.changeLayout.bind(this);
         this.changeTopbarTheme = this.changeTopbarTheme.bind(this);
         this.changeLeftSidebarTheme = this.changeLeftSidebarTheme.bind(this);
         this.changeLayoutWidth = this.changeLayoutWidth.bind(this);
@@ -58,11 +58,11 @@ class RightSideBar extends Component {
     }
 
     //change layput type and dispatch action
-    changeLayout(e) {
+    /* changeLayout(e) {
         if (e.target.checked) {
           this.props.changeLayout(e.target.value);
         }
-    }
+    } */
 
     //theme preloader
     changeThemePreloader = (e) => {
@@ -117,6 +117,7 @@ class RightSideBar extends Component {
                         <hr className="my-0" />
                         
                         <div className="p-4">
+                            {/*
                             <div className="radio-toolbar">
                                 <span>Layouts</span><br />
                                 <input 
@@ -137,6 +138,7 @@ class RightSideBar extends Component {
                                     onChange={this.changeLayout} />
                                 <label htmlFor="radioHorizontal">Horizontal</label>
                             </div>
+                            */}
                             <br/>
                             <div className="radio-toolbar">
                                 <span id="radio-title">Layout Width</span><br />
@@ -345,7 +347,7 @@ const mapStatetoProps = state => {
 
 export default connect(mapStatetoProps, {
     hideRightSidebar,
-    changeLayout,
+    //changeLayout,
     changeTopbarTheme,
     changeSidebarTheme,
     changeLayoutWidth,

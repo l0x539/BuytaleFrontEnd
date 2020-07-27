@@ -6,7 +6,7 @@ import { authProtectedRoutes, publicRoutes } from "./routes/";
 import AppRoute from "./routes/route";
 
 import VerticalLayout from "./component/Layout/VerticalLayout";
-import HorizontalLayout from "./component/Layout/HorizontalLayout/";
+//import HorizontalLayout from "./component/Layout/HorizontalLayout/";
 import NonAuthLayout from "./component/NonAuthLayout/NonAuthLayout";
 
 // Import scss
@@ -27,7 +27,7 @@ class App extends Component {
 
     switch (this.props.layout.layoutType) {
       case "horizontal":
-        layoutCls = HorizontalLayout;
+        // layoutCls = HorizontalLayout;
         break;
       default:
         layoutCls = VerticalLayout;

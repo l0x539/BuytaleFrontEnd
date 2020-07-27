@@ -26,7 +26,7 @@ class TopDropDown extends Component {
                                     return <DropdownItem key={i} tag="a" href="{value.link}">{value.name}</DropdownItem>
                                 })}
                                 <DropdownItem divider></DropdownItem>
-                                <DropdownItem tag="a" href="webstore">View All</DropdownItem>
+                                <DropdownItem tag="a" href="webstores">View All</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
             </React.Fragment>

@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { Table, Card, Badge, Button } from "reactstrap";
+import { Table, Card, CardBody, Button } from "reactstrap";
+import { randomAvatar } from '../../../helpers/randomAvatar'
 
-import { randomAvatar } from '../../helpers/randomAvatar'
-
-class LatestOrders extends Component {
+class LatestTransactions extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            orders : [
-                { imgUrl : randomAvatar(), id : "1", name : "Nico 0xSEG", status : "Delivered", amount : "0", date : "1/04/2020", color : "success" }, // success, warning, danger
-            ]
+            transactions : [
+                { imgUrl : randomAvatar(), name : "Nico OxSEG", status : "Confirm", amount : "0", date : "1/04/2020", color : "success" },  // success, warning, danger
+            ],
         }
     }
     
@@ -17,26 +16,27 @@ class LatestOrders extends Component {
         return (
             <React.Fragment>
                             <Card>
-                                <div className="card-body">
-                                    <h4 className="card-title mb-4">Latest Orders</h4>
+                                <CardBody>
+                                    <h4 className="card-title mb-4">Latest Transactions</h4>
 
                                     <div className="table-responsive">
-                                        <Table className="table-centered table-vertical table-nowrap mb-1">
+                                        <Table className="table-centered table-vertical table-nowrap">
 
                                             <tbody>
                                                 {
-                                                    this.state.orders.map((order, key) =>
+                                                    this.state.transactions.map((transaction, key) =>
                                                         <tr key={key}>
-                                                            <td>#{order.id}</td>
                                                             <td>
-                                                                <img src={order.imgUrl} alt="user" className="avatar-xs mr-2 rounded-circle" /> {order.name}
+                                                                <img src={transaction.imgUrl} alt="user" className="avatar-xs rounded-circle mr-2" /> {transaction.name}
                                                             </td>
-                                                            <td><Badge color={order.color} className="badge-pill">{order.status}</Badge></td>
+                                                            <td><i className={"mdi mdi-checkbox-blank-circle  text-" + transaction.color}></i> {transaction.status}</td>
                                                             <td>
-                                                                ${order.amount}
+                                                                ${transaction.amount}
+                                                                <p className="m-0 text-muted font-14">Amount</p>
                                                             </td>
                                                             <td>
-                                                                {order.date}
+                                                                {transaction.date}
+                                                                <p className="m-0 text-muted font-14">Date</p>
                                                             </td>
                                                             <td>
                                                                 <Button color="secondary" size="sm" className="waves-effect waves-light">Edit</Button>
@@ -47,11 +47,11 @@ class LatestOrders extends Component {
                                             </tbody>
                                         </Table>
                                     </div>
-                                </div>
+                                </CardBody>
                             </Card>
             </React.Fragment>
         );
     }
 }
 
-export default LatestOrders;
+export default LatestTransactions;

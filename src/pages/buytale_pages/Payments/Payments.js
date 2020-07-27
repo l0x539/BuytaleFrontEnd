@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import { Row, Col } from 'reactstrap'
 
 //Import Action to copy breadcrumb items from local state to redux state
 import { setBreadcrumbItems } from "../../../store/actions";
+
+import ListPayments from "./list-payments"
 
 
 class Payments extends Component {
@@ -24,7 +27,12 @@ class Payments extends Component {
     render() {
         return (
             <React.Fragment>
-                              
+                    <Row>
+                        <Col xl="12">
+                            {/* latest transactions */}
+                            <ListPayments/>
+                        </Col>
+                    </Row> 
             </React.Fragment>
         );
     }

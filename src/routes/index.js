@@ -13,7 +13,7 @@ import Pages404 from "../pages/Extra Pages/pages-404";
 import Pages500 from "../pages/Extra Pages/pages-500";
 
 //Dashboard
-import Dashboard from '../pages/Dashboard/dashboard';
+import Dashboard from '../pages/buytale_pages/Dashboard/dashboard';
 
 //Payments
 import Payments from '../pages/buytale_pages/Payments/Payments';
@@ -22,6 +22,8 @@ import Agreement from '../pages/buytale_pages/Payments/Agreement';
 import Gateway from '../pages/buytale_pages/Payments/Gateway';
 import Taxes from '../pages/buytale_pages/Payments/Taxes';
 import Exports from '../pages/buytale_pages/Payments/Exports';
+import Create from '../pages/buytale_pages/Payments/Create';
+import Export from '../pages/buytale_pages/Payments/Export';
 
 //Statistics
 import Statistics from '../pages/buytale_pages/Statistics/Statistics';
@@ -124,6 +126,8 @@ const authProtectedRoutes = [
 
   // Payments
   { path: "/payments", component: Payments },
+  { path: "/payments/create", component: Create },
+  { path: "/payments/export", component: Export },
   { path: "/subscription", component: Subscription },
   { path: "/agreement", component: Agreement },
   { path: "/gateways", component: Gateway },
