@@ -1,0 +1,25 @@
+div .golden-gateway > .card{
+    border: 2px solid #eec643;
+    border-radius: 3px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+div .golden-gateway > .card > div.card-body.head-title {
+    background-color: #eec643;
+}
+
+div .green-gateway > .card{
+    border: 2px solid #17ad56;
+    border-radius: 3px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+div .green-gateway > .card > div.card-body.head-title {
+    background-color: #bebfc3;
+}

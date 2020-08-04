@@ -78,7 +78,7 @@ class ListPayments extends Component {
                         <Col xs={6} sm={8}>
                             <h4 className="card-title mb-4">Latest Transactions</h4>
                         </Col>
-                        <Col sm={4}>
+                        <Col sm={4} className="text-center text-md-right">
                             <Modal
                                 isOpen={this.state.modal_standard}
                                 toggle={this.tog_standard}

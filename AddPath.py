@@ -5,13 +5,14 @@ import sys
 # Add path file
 input("Don't Run this unless you know what its doing! ")
 
-_PROJECT_DIR = "D:\\0x539\\Coding\\NodeJS\\Buytale\\BuytaleFrontEnd"
+_PROJECT_DIR = "/home/0x539/github-repos/BuytaleFrontEnd/"
 _OS_SEP = "\\" if os.name == "nt" else "/"
 
 def make_path(path):
-	ROOT = ""
+	ROOT = "/"
 	if path[1] == ":":
 		_ROOT = path[:2]
+
 	PATHS = path.split(_OS_SEP)[:-1]
 	for i in range(len(PATHS)):
 		CH_DIR = ROOT + f"{_OS_SEP}".join(PATHS[:i+1])

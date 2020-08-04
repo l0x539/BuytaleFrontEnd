@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 //Import Action to copy breadcrumb items from local state to redux state
 import { setBreadcrumbItems } from "../../../store/actions";
+import { CardText } from "reactstrap";
 
 
 class Agreement extends Component {
@@ -24,7 +25,11 @@ class Agreement extends Component {
     render() {
         return (
             <React.Fragment>
-                              
+                            <div className="card card-body text-center">
+                                <h1 className="display-1"><i className="mdi mdi-credit-card-outline"></i></h1>
+                                <CardText>Billing agreements for subscriptions will be displayed here. For legacy subscriptions (PayPal, Paymentwall etc), see <a href="/subscription">subscriptions</a>.
+                                </CardText>
+                            </div>   
             </React.Fragment>
         );
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Row, Col, Card, CardBody } from "reactstrap";
+import { Button, Row, Card, CardBody } from "reactstrap";
 import ReactApexChart from 'react-apexcharts';
 
 class MonthlyEarnings extends Component {

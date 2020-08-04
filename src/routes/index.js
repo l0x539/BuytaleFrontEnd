@@ -21,9 +21,13 @@ import Subscription from '../pages/buytale_pages/Payments/Subscription';
 import Agreement from '../pages/buytale_pages/Payments/Agreement';
 import Gateway from '../pages/buytale_pages/Payments/Gateway';
 import Taxes from '../pages/buytale_pages/Payments/Taxes';
+import TaxesCreate from '../pages/buytale_pages/Payments/TaxesCreate';
+import TaxesEdit from '../pages/buytale_pages/Payments/TaxesEdit';
 import Exports from '../pages/buytale_pages/Payments/Exports';
 import Create from '../pages/buytale_pages/Payments/Create';
 import Export from '../pages/buytale_pages/Payments/Export';
+import GatewaySelect from '../pages/buytale_pages/Payments/GatewaySelect';
+import GatewayCreate from '../pages/buytale_pages/Payments/GatewayCreate';
 
 //Statistics
 import Statistics from '../pages/buytale_pages/Statistics/Statistics';
@@ -131,7 +135,11 @@ const authProtectedRoutes = [
   { path: "/subscription", component: Subscription },
   { path: "/agreement", component: Agreement },
   { path: "/gateways", component: Gateway },
+  { path: "/gateways/select", component: GatewaySelect },
+  { path: "/Gateways/create/:id", component: GatewayCreate },
   { path: "/taxes", component: Taxes },
+  { path: "/taxes/create", component: TaxesCreate },
+  { path: "/Taxes/edit/:id", component: TaxesEdit },
   { path: "/exports", component: Exports },
 
   // Statistics
