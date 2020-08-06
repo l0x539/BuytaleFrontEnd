@@ -1,3 +1,6 @@
+/* THEME */
+export const CHANGE_THEME = "CHANGE_THEME";
+
 /* LAYOUT */
 export const CHANGE_LAYOUT = "CHANGE_LAYOUT";
 export const CHANGE_SIDEBAR_THEME = "CHANGE_SIDEBAR_THEME";

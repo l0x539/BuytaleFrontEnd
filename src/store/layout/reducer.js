@@ -3,6 +3,7 @@ import {
     TOGGLE,
     TOGGLE_RIGHT_SIDEBAR,
     HIDE_RIGHT_SIDEBAR,
+    CHANGE_THEME,
     CHANGE_LAYOUT,
     CHANGE_SIDEBAR_THEME,
     CHANGE_LAYOUT_WIDTH,
@@ -17,6 +18,7 @@ const initialState={
     leftSideBarTheme: "dark",
     layoutWidth: "fluid",
     leftSideBarType: "default",
+    theme: "white",   // get default values
     isPreloader : false,
     is_toggle : true,
     show_rightsidebar : false,
@@ -25,6 +27,11 @@ const initialState={
 
 const layout = (state=initialState,action) => {
     switch(action.type){
+        case CHANGE_THEME:
+            return {
+                ...state,
+                theme: action.payload
+            }
         case CHANGE_LAYOUT:
             return {
               ...state,

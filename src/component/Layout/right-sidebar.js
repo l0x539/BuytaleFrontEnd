@@ -8,10 +8,11 @@ import {
     changeSidebarTheme,
     changeLayoutWidth,
     changeSidebarType,
-    changePreloader
+    changePreloader,
+    changeTheme
 } from '../../store/actions';
 
-import { FormGroup } from "reactstrap";
+import { FormGroup, Button } from "reactstrap";
 
 //Import Scrollbar
 import PerfectScrollbar from 'react-perfect-scrollbar';
@@ -63,6 +64,18 @@ class RightSideBar extends Component {
           this.props.changeLayout(e.target.value);
         }
     } */
+
+    setWhiteTheme = () => {
+        this.props.changeTheme("white");
+    }
+    setDarkTheme = () => {
+        this.props.changeTheme("dark");
+    }
+    /*
+    setRTLTheme = () => {
+        this.props.changeTheme("rtl");
+    }
+    */
 
     //theme preloader
     changeThemePreloader = (e) => {
@@ -282,18 +295,17 @@ class RightSideBar extends Component {
                                 <h6 className="text-center">Choose Layouts</h6>
 
                                 <div className="mb-2">
-                                    <Link to="#" target="_blank">
+                                    <Button to="#" onClick={this.setWhiteTheme} target="_blank">
                                         <img
                                         src={layout1}
                                         className="img-fluid img-thumbnail"
                                         alt=""
                                         />
-                                    </Link>
+                                    </Button>
                                 </div>
 
                                 <div className="mb-2">
-                                    <Link
-                                        to="#"
+                                    <Button onClick={this.setDarkTheme} 
                                         target="_blank"
                                     >
                                         <img
@@ -301,29 +313,8 @@ class RightSideBar extends Component {
                                         className="img-fluid img-thumbnail"
                                         alt=""
                                         />
-                                    </Link>
+                                    </Button>
                                 </div>
-
-                                <div className="mb-2">
-                                    <Link
-                                        to="#"
-                                        target="_blank"
-                                    >
-                                        <img
-                                        src={layout3}
-                                        className="img-fluid img-thumbnail"
-                                        alt=""
-                                        />
-                                    </Link>
-                                </div>
-
-                                <Link
-                                    to="#"
-                                    className="btn btn-primary btn-block mt-3"
-                                    target="_blank"
-                                >
-                                    <i className="mdi mdi-cart mr-1"></i> Purchase Now
-                                </Link>
                         </div>
                     </PerfectScrollbar>
                 </div>
@@ -341,7 +332,8 @@ const mapStatetoProps = state => {
         layoutWidth : Layout.layoutWidth,
         topbarTheme : Layout.topbarTheme,
         leftSideBarType : Layout.leftSideBarType,
-        isPreloader : Layout.isPreloader
+        isPreloader : Layout.isPreloader,
+        theme: Layout.theme
     };
 };
 
@@ -352,5 +344,6 @@ export default connect(mapStatetoProps, {
     changeSidebarTheme,
     changeLayoutWidth,
     changeSidebarType,
-    changePreloader
+    changePreloader,
+    changeTheme
 })(RightSideBar);

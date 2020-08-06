@@ -3,6 +3,7 @@ import {
     TOGGLE,
     TOGGLE_RIGHT_SIDEBAR,
     HIDE_RIGHT_SIDEBAR,
+    CHANGE_THEME,
     CHANGE_LAYOUT,
     CHANGE_SIDEBAR_THEME,
     CHANGE_LAYOUT_WIDTH,
@@ -19,6 +20,11 @@ export const changeLayout = layout => ({
 export const changePreloader = layout => ({
     type: CHANGE_PRELOADER,
     payload: layout
+});
+
+export const changeTheme = theme => ({
+    type: CHANGE_THEME,
+    payload: theme
 });
 
 export const changeSidebarTheme = theme => ({

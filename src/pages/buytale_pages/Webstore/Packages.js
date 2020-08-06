@@ -62,6 +62,37 @@ class Packages extends Component {
                         }
                     ]
                     
+                },
+                {
+                    id: 5,
+                    name: "Category 1",
+                    packages: [
+                        {
+                            id: 6,
+                            name: "Eaxample Package",
+                            price: "$15.00"
+                        },
+                        {
+                            id: 7,
+                            name: "Package2",
+                            price: "$3.00"
+                        }
+                    ],
+                    subpackages: [
+                        {
+                            id: 8,
+                            name: "Subpackage Example",
+                            content: [
+                                {
+                                    id: 9,
+                                    name: "Eaxample SubPackage",
+                                    price: "$15.00"
+                                }
+                            ]
+
+                        }
+                    ]
+                    
                 }
             ],
         }
@@ -118,7 +149,7 @@ class Packages extends Component {
                                                     Add New <i className="mdi mdi-chevron-down"></i>
                                                 </DropdownToggle>
                                                 <DropdownMenu>
-                                                    <DropdownItem href="#">Category</DropdownItem>
+                                                    <DropdownItem href="/category/create">Category</DropdownItem>
                                                     <DropdownItem divider/>
                                                     <DropdownItem href="#">Package</DropdownItem>
                                                 </DropdownMenu>
@@ -138,165 +169,208 @@ class Packages extends Component {
                                     <div id="accordion">
                                         {this.state.Categories.map((category) => {
                                             return (
-                                            <Card key={category.id}>
-                                                <CardBody>
-                                                    <div className="card mb-1 shadow-none">
-                                                        <div className="card-header p-3" id={category.id}>
-                                                            <h6 className="m-0 font-size-14">
-                                                                <Row>
-                                                                    <Col sm={4}>
-                                                                        {category.name}
-                                                                    </Col>
-                                                                    <Col sm={1}>
-                                                                        ID:{category.id}
-                                                                    </Col>
-                                                                    <Col sm={5} className="text-center text-md-right">
-                                                                        <Link to={"/Categories/create/parent/"+category.id}>Create subcategory</Link>
-                                                                    </Col>
-                                                                    <Col sm={1} className="text-center text-md-right">
-                                                                        <Dropdown
-                                                                            isOpen={this.state.drop === category.id}
-                                                                            toggle={() => {
-                                                                                this.setState({ drop: this.state.drop===category.id?null:category.id })
-                                                                            }
-                                                                            
-                                                                            }
-                                                                        >
-                                                                        <DropdownToggle tag="a" className="" >
-                                                                            <i className="fas fa-ellipsis-h" id="dropdown-custom-components"></i>
-                                                                        </DropdownToggle>
-                                                                        <DropdownMenu>
-                                                                                <DropdownItem href="#">Clone</DropdownItem>
-                                                                                <DropdownItem href="#">Edit</DropdownItem>
-                                                                                <DropdownItem href="#">Delete</DropdownItem>
-                                                                        </DropdownMenu>
-                                                                        </Dropdown>
-                                                                    </Col>
-                                                                    <Col sm={1} className="text-center text-md-right">
-                                                                        <Link
-                                                                            to="#"
-                                                                            className="text-dark"
-                                                                            onClick={()=>{this.toggle_acc(category.id)}} 
-                                                                            style={{ cursor : "pointer" }}
-                                                                        >
-                                                                            {this.state.cols.includes(category.id)?<i className="mdi mdi-chevron-up"></i>:<i className="mdi mdi-chevron-down"></i>}
-                                                                        </Link>
-                                                                    </Col>
-                                                                </Row>
-                                                            </h6>
-                                                        </div>
-
-                                                        <Collapse isOpen={this.state.cols.includes(category.id)}>
-                                                            <Card>
-                                                            <CardBody>
-                                                                {category.packages.map((pack)=>{
-                                                                    return (
-                                                                            <ListGroup key={pack.id}>
+                                                <Card key={category.id}>
+                                                    <CardBody>
+                                                        <div className="card mb-1 shadow-none">
+                                                            <div className="card-header p-3" id={category.id}>
+                                                                <h6 className="m-0 font-size-14">
+                                                                    <Row>
+                                                                        <Col sm={4}>
+                                                                            {category.name}
+                                                                        </Col>
+                                                                        <Col sm={1}>
+                                                                            ID:{category.id}
+                                                                        </Col>
+                                                                        <Col sm={5} className="text-center text-md-right">
+                                                                            <Link to={"/Categories/create/parent/"+category.id}>Create subcategory</Link>
+                                                                        </Col>
+                                                                        <Col sm={1} className="text-center text-md-right">
+                                                                            <Dropdown
+                                                                                isOpen={this.state.drop === category.id}
+                                                                                toggle={() => {
+                                                                                    this.setState({ drop: this.state.drop===category.id?null:category.id })
+                                                                                }
                                                                                 
-                                                                                <ListGroupItem>
-                                                                                    <Row>
-                                                                                        <Col sm={4}>
-                                                                                            {pack.name}
-                                                                                        </Col>
-                                                                                        <Col sm={1}>
-                                                                                            ID:{pack.id}
-                                                                                        </Col>
-                                                                                        <Col sm={5} className="text-center">
-                                                                                            {pack.price}
-                                                                                        </Col>
-                                                                                        <Col sm={1} className="text-center text-md-right">
-                                                                                        </Col>
-                                                                                        <Col sm={1} className="text-center text-md-right">
-                                                                                            <i className="fas fa-ellipsis-h"></i>
-                                                                                        </Col>
-                                                                                    </Row>
-                                                                                </ListGroupItem>
-                                                                            </ListGroup>    
-                                                                    )
-                                                                })}
-                                                                {category.subpackages.map((subpack) => {
-                                                                    return (
-                                                                        <div className="card mb-1 shadow-none" key={subpack.id}>
-                                                                            <div className="card-header p-3" id={subpack.id}>
-                                                                                <h6 className="m-0 font-size-14">
-                                                                                    <Row>
-                                                                                        <Col sm={4}>
-                                                                                            {subpack.name}
-                                                                                        </Col>
-                                                                                        <Col sm={1}>
-                                                                                            ID:{subpack.id}
-                                                                                        </Col>
-                                                                                        <Col sm={5} className="text-center text-md-right">
-                                                                                        </Col>
-                                                                                        <Col sm={1} className="text-center text-md-right">
-                                                                                            <Dropdown
-                                                                                                isOpen={this.state.drop===subpack.id}
-                                                                                                toggle={() => {
-                                                                                                    this.setState({ drop: this.state.drop===subpack.id?null:subpack.id });
-                                                                                                }
-                                                                                                }
-                                                                                            >
-                                                                                            <DropdownToggle tag="a" className="" >
-                                                                                                <i className="fas fa-ellipsis-h" id="dropdown-custom-components"></i>
-                                                                                            </DropdownToggle>
-                                                                                            <DropdownMenu>
-                                                                                                    <DropdownItem href="#">Clone</DropdownItem>
-                                                                                                    <DropdownItem href="#">Edit</DropdownItem>
-                                                                                                    <DropdownItem href="#">Delete</DropdownItem>
-                                                                                            </DropdownMenu>
-                                                                                            </Dropdown>
-                                                                                        </Col>
-                                                                                        <Col sm={1} className="text-center text-md-right">
-                                                                                            <Link
-                                                                                                to="#"
-                                                                                                className="text-dark"
-                                                                                                onClick={()=>{this.toggle_acc(subpack.id)}} 
-                                                                                                style={{ cursor : "pointer" }}
-                                                                                            >
-                                                                                                {this.state.cols.includes(subpack.id)?<i className="mdi mdi-chevron-up"></i>:<i className="mdi mdi-chevron-down"></i>}
-                                                                                            </Link>
-                                                                                        </Col>
-                                                                                    </Row>
-                                                                                </h6>
-                                                                            </div>
+                                                                                }
+                                                                            >
+                                                                            <DropdownToggle tag="a" className="" >
+                                                                                <i className="fas fa-ellipsis-h" id="dropdown-custom-components"></i>
+                                                                            </DropdownToggle>
+                                                                            <DropdownMenu>
+                                                                                    <DropdownItem href="#">Clone</DropdownItem>
+                                                                                    <DropdownItem href="#">Edit</DropdownItem>
+                                                                                    <DropdownItem href="#">Delete</DropdownItem>
+                                                                            </DropdownMenu>
+                                                                            </Dropdown>
+                                                                        </Col>
+                                                                        <Col sm={1} className="text-center text-md-right">
+                                                                            <Link
+                                                                                to="#"
+                                                                                className="text-dark"
+                                                                                onClick={()=>{this.toggle_acc(category.id)}} 
+                                                                                style={{ cursor : "pointer" }}
+                                                                            >
+                                                                                {this.state.cols.includes(category.id)?<i className="mdi mdi-chevron-up"></i>:<i className="mdi mdi-chevron-down"></i>}
+                                                                            </Link>
+                                                                        </Col>
+                                                                    </Row>
+                                                                </h6>
+                                                            </div>
 
-                                                                            <Collapse isOpen={this.state.cols.includes(subpack.id)}>
-                                                                                <CardBody>
-                                                                                    {subpack.content.map((pack)=>{
-                                                                                        return (
-                                                                                                <ListGroup key={pack.id}>
-                                                                                                    <ListGroupItem>
-                                                                                                        <Row>
-                                                                                                            <Col sm={4}>
-                                                                                                                {pack.name}
-                                                                                                            </Col>
-                                                                                                            <Col sm={1}>
-                                                                                                                ID:{pack.id}
-                                                                                                            </Col>
-                                                                                                            <Col sm={5} className="text-center">
-                                                                                                                {pack.price}
-                                                                                                            </Col>
-                                                                                                            <Col sm={1} className="text-center text-md-right">
-                                                                                                            </Col>
-                                                                                                            <Col sm={1} className="text-center text-md-right">
-                                                                                                                <i className="fas fa-ellipsis-h"></i>
-                                                                                                            </Col>
-                                                                                                        </Row>
-                                                                                                    </ListGroupItem>
-                                                                                                </ListGroup>    
-                                                                                        )
-                                                                                    })}
-                                                                                </CardBody>
-                                                                            </Collapse>
-                                                                        </div>
-                                                                    )
-                                                                })}
-                                                            </CardBody>
-                                                            </Card>
-                                                        </Collapse>
-                                                    </div>
-                                                </CardBody>
-                                            </Card>
+                                                            <Collapse isOpen={this.state.cols.includes(category.id)}>
+                                                                <CardBody>
+                                                                    {
+                                                                        category.packages.length < 1?
+                                                                        <ListGroup>
+                                                                                <ListGroupItem>Drag a package here or or <Link to="">Create one</Link></ListGroupItem>
+                                                                        </ListGroup>
+                                                                        :""
+                                                                    }
+                                                                    {category.packages.map((pack)=>{
+                                                                        return (
+                                                                                <ListGroup key={pack.id}>
+                                                                                    
+                                                                                    <ListGroupItem>
+                                                                                        <Row>
+                                                                                            <Col sm={4}>
+                                                                                                {pack.name}
+                                                                                            </Col>
+                                                                                            <Col sm={1}>
+                                                                                                ID:{pack.id}
+                                                                                            </Col>
+                                                                                            <Col sm={5} className="text-center">
+                                                                                                {pack.price}
+                                                                                            </Col>
+                                                                                            <Col sm={1} className="text-center text-md-right">
+                                                                                            </Col>
+                                                                                            <Col sm={1} className="text-center text-md-right">
+                                                                                                <Dropdown
+                                                                                                    isOpen={this.state.drop === pack.id}
+                                                                                                    toggle={() => {
+                                                                                                        this.setState({ drop: this.state.drop===pack.id?null:pack.id })
+                                                                                                    }
+                                                                                                    
+                                                                                                    }
+                                                                                                >
+                                                                                                <DropdownToggle tag="a" className="" >
+                                                                                                    <i className="fas fa-ellipsis-h" id="dropdown-custom-components"></i>
+                                                                                                </DropdownToggle>
+                                                                                                <DropdownMenu>
+                                                                                                        <DropdownItem href="#">Clone</DropdownItem>
+                                                                                                        <DropdownItem href="#">Edit</DropdownItem>
+                                                                                                        <DropdownItem href="#">Delete</DropdownItem>
+                                                                                                </DropdownMenu>
+                                                                                                </Dropdown>
+                                                                                            </Col>
+                                                                                        </Row>
+                                                                                    </ListGroupItem>
+                                                                                </ListGroup>    
+                                                                        )
+                                                                    })}
+                                                                    {category.subpackages.map((subpack) => {
+                                                                        return (
+                                                                            <div className="card mb-1 shadow-none" key={subpack.id}>
+                                                                                <div className="card-header p-3" id={subpack.id}>
+                                                                                    <h6 className="m-0 font-size-14">
+                                                                                        <Row>
+                                                                                            <Col sm={4}>
+                                                                                                {subpack.name}
+                                                                                            </Col>
+                                                                                            <Col sm={1}>
+                                                                                                ID:{subpack.id}
+                                                                                            </Col>
+                                                                                            <Col sm={5} className="text-center text-md-right">
+                                                                                            </Col>
+                                                                                            <Col sm={1} className="text-center text-md-right">
+                                                                                                <Dropdown
+                                                                                                    isOpen={this.state.drop===subpack.id}
+                                                                                                    toggle={() => {
+                                                                                                        this.setState({ drop: this.state.drop===subpack.id?null:subpack.id });
+                                                                                                    }
+                                                                                                    }
+                                                                                                >
+                                                                                                <DropdownToggle tag="a" className="" >
+                                                                                                    <i className="fas fa-ellipsis-h" id="dropdown-custom-components"></i>
+                                                                                                </DropdownToggle>
+                                                                                                <DropdownMenu>
+                                                                                                        <DropdownItem href="#">Clone</DropdownItem>
+                                                                                                        <DropdownItem href="#">Edit</DropdownItem>
+                                                                                                        <DropdownItem href="#">Delete</DropdownItem>
+                                                                                                </DropdownMenu>
+                                                                                                </Dropdown>
+                                                                                            </Col>
+                                                                                            <Col sm={1} className="text-center text-md-right">
+                                                                                                <Link
+                                                                                                    to="#"
+                                                                                                    className="text-dark"
+                                                                                                    onClick={()=>{this.toggle_acc(subpack.id)}} 
+                                                                                                    style={{ cursor : "pointer" }}
+                                                                                                >
+                                                                                                    {this.state.cols.includes(subpack.id)?<i className="mdi mdi-chevron-up"></i>:<i className="mdi mdi-chevron-down"></i>}
+                                                                                                </Link>
+                                                                                            </Col>
+                                                                                        </Row>
+                                                                                    </h6>
+                                                                                </div>
+
+                                                                                <Collapse isOpen={this.state.cols.includes(subpack.id)}>
+                                                                                    <CardBody>
+                                                                                        {
+                                                                                            subpack.content.length < 1?
+                                                                                            <ListGroup>
+                                                                                                    <ListGroupItem>Drag a package here or or <Link to="">Create one</Link></ListGroupItem>
+                                                                                            </ListGroup>
+                                                                                            :""
+                                                                                        }
+                                                                                        {subpack.content.map((pack)=>{
+                                                                                            return (
+                                                                                                    <ListGroup key={pack.id}>
+                                                                                                        <ListGroupItem>
+                                                                                                            <Row>
+                                                                                                                <Col sm={4}>
+                                                                                                                    {pack.name}
+                                                                                                                </Col>
+                                                                                                                <Col sm={1}>
+                                                                                                                    ID:{pack.id}
+                                                                                                                </Col>
+                                                                                                                <Col sm={5} className="text-center">
+                                                                                                                    {pack.price}
+                                                                                                                </Col>
+                                                                                                                <Col sm={1} className="text-center text-md-right">
+                                                                                                                </Col>
+                                                                                                                <Col sm={1} className="text-center text-md-right">
+                                                                                                                    <Dropdown
+                                                                                                                        isOpen={this.state.drop===pack.id}
+                                                                                                                        toggle={() => {
+                                                                                                                            this.setState({ drop: this.state.drop===pack.id?null:pack.id });
+                                                                                                                        }
+                                                                                                                        }
+                                                                                                                    >
+                                                                                                                    <DropdownToggle tag="a" className="" >
+                                                                                                                        <i className="fas fa-ellipsis-h" id="dropdown-custom-components"></i>
+                                                                                                                    </DropdownToggle>
+                                                                                                                    <DropdownMenu>
+                                                                                                                            <DropdownItem href="#">Clone</DropdownItem>
+                                                                                                                            <DropdownItem href="#">Edit</DropdownItem>
+                                                                                                                            <DropdownItem href="#">Delete</DropdownItem>
+                                                                                                                    </DropdownMenu>
+                                                                                                                    </Dropdown>
+                                                                                                                </Col>
+                                                                                                            </Row>
+                                                                                                        </ListGroupItem>
+                                                                                                    </ListGroup>    
+                                                                                            )
+                                                                                        })}
+                                                                                    </CardBody>
+                                                                                </Collapse>
+                                                                            </div>
+                                                                        )
+                                                                    })}
+                                                                </CardBody>
+                                                            </Collapse>
+                                                        </div>
+                                                    </CardBody>
+                                                </Card>
                                             )
 
                                         })}

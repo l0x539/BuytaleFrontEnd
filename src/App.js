@@ -23,6 +23,7 @@ class App extends Component {
   }
 
   getLayout = () => {
+    document.getElementsByTagName("html")[0].className = this.props.layout.theme;
     let layoutCls = VerticalLayout;
 
     switch (this.props.layout.layoutType) {

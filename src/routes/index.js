@@ -39,6 +39,7 @@ import WhiteList from '../pages/buytale_pages/Players/WhiteList';
 
 //Webstore
 import Packages from '../pages/buytale_pages/Webstore/Packages';
+import CategoryCreate from '../pages/buytale_pages/Webstore/CategoryCreate';
 import Variables from '../pages/buytale_pages/Webstore/Variables';
 import Pages from '../pages/buytale_pages/Webstore/Pages';
 //Webstore => Design
@@ -152,6 +153,7 @@ const authProtectedRoutes = [
 
   // Webstore
   { path: "/packages", component: Packages },
+  { path: "/category/create", component: CategoryCreate }, 
   { path: "/variables", component: Variables },
   { path: "/pages", component: Pages },
 
