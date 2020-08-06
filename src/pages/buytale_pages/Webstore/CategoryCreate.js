@@ -3,14 +3,17 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 
 import { AvForm, AvField } from "availity-reactstrap-validation";
-import { Card, CardBody, FormGroup, Button, Label, CardHeader } from "reactstrap";
+import { Card, CardBody, FormGroup, Button, Label, ListGroup, ListGroupItem } from "reactstrap";
 import Select from "react-select";
 
-import { Row, Col, Form } from "reactstrap";
+import { Row, Col } from "reactstrap";
 
 // Form Editor
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+
+//Import Switch
+import Switch from "react-switch";
 
 //Import Action to copy breadcrumb items from local state to redux state
 import { setBreadcrumbItems } from "../../../store/actions";
@@ -27,6 +30,14 @@ class CategoryCreate extends Component {
             ],
             selectedGroup: null,
             selectedMulti: null,
+            switch1: false,
+            switch2: false,
+            switch3: false,
+            switch4: false,
+            switch5: false,
+            switch6: false,
+            switch7: false,
+
         }
     } 
 
@@ -34,8 +45,54 @@ class CategoryCreate extends Component {
         this.props.setBreadcrumbItems("", this.state.breadcrumbItems);
     }
 
+    handleSelectGroup = selectedGroup => {
+        this.setState({ selectedGroup });
+    };
+    handleMulti = selectedMulti => {
+        this.setState({ selectedMulti });
+    };
+
     render() {
-        const { selectedMulti, optionGroup } = this.state;
+        const { selectedGroup, selectedMulti, optionGroup } = this.state;
+
+        function Offsymbol(text){
+            return (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                  fontSize: 12,
+                  color: "#fff",
+                  paddingRight: 2
+                }}
+              >
+                {" "}
+                {text}
+              </div>
+            );
+          };
+      
+        function OnSymbol(text) {
+            return (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100%",
+                  fontSize: 12,
+                  color: "#fff",
+                  paddingRight: 2
+                }}
+              >
+                {" "}
+                {text}
+              </div>
+            );
+          };
+
         return (
             <React.Fragment>
                         <Card>
@@ -58,62 +115,205 @@ class CategoryCreate extends Component {
                                     <Row>
                                         <Col>
                                             <h4 className="card-title">Description</h4>
-                                            <Form method="post">
-                                                <Editor
-                                                    toolbarClassName="toolbarClassName"
-                                                    wrapperClassName="wrapperClassName"
-                                                    editorClassName="editorClassName"
-                                                    editorStyle={{minHeight : "500px"}}
-                                                />
-                                            </Form>
+                                            <Editor
+                                                toolbarClassName="toolbarClassName"
+                                                wrapperClassName="wrapperClassName"
+                                                editorClassName="editorClassName"
+                                                editorStyle={{minHeight : "200px"}}
+                                            />
                                         </Col>
                                     </Row>
                                     <Row>
-                                        <Col xl="12">
-                                        <FormGroup className="mb-0">
-                                            <Label className="control-label">Packages</Label>
+                                        <Col xl="6">
+                                        <FormGroup>
+                                            <Label className="control-label"> Parent Category</Label>
                                             <Select
-                                                value={selectedMulti}
-                                                isMulti={true}
-                                                onChange={this.handleMulti}
+                                                value={selectedGroup}
+                                                onChange={this.handleSelectGroup}
                                                 options={optionGroup}
-                                                className="select2 select2-multiple"
+                                                className="select2"
+                                                placeholder="Do not assign a parent category."
                                             />
-
+                                        </FormGroup>
+                                        </Col>
+                                        <Col xl="6">
+                                        <FormGroup>
+                                            <Label className="control-label">Packages Display Type</Label>
+                                            <Select
+                                                value={selectedGroup}
+                                                onChange={this.handleSelectGroup}
+                                                options={optionGroup}
+                                                className="select2"
+                                            />
                                         </FormGroup>
                                         </Col>
                                     </Row>
-                                    {this.state.selectedMulti?this.state.selectedMulti.map((tpackage, i)=>{
-                                        return (
-                                            <Row key={i}>
-                                                <Col>
-                                                    <Card>
-                                                        <CardHeader>
-                                                            {tpackage.value}
-                                                        </CardHeader>
-                                                        <CardBody>
-                                                            <AvField
-                                                                name={tpackage.label + '_q'}
-                                                                label={tpackage.value}
-                                                                placeholder="0"
-                                                                type="number"
-                                                                errorMessage="Enter a quantity"
-                                                                validate={{
-                                                                    required: { value: true },
-                                                                    pattern: {
-                                                                    value: "^[0-9]+$",
-                                                                    errorMessage: "Only Digits"
-                                                                    }
-                                                                }}
-                                                            />
-                                                        </CardBody>
-                                                    </Card>
+                                    <Row>
+                                        <Col xl="6">
+                                            <FormGroup className="mb-0">
+                                                <Label className="control-label">Restrict Category By Packages</Label>
+                                                <Select
+                                                    value={selectedMulti}
+                                                    isMulti={true}
+                                                    onChange={this.handleMulti}
+                                                    options={optionGroup}
+                                                    placeholder="Nothing Selected"
+                                                    className="select2 select2-multiple"
+                                                />
+
+                                            </FormGroup>
+                                        </Col>
+                                        <Col xl="6">
+                                            <AvField
+                                                name="guiitem"
+                                                label="GUI Item "
+                                                placeholder="Enter the material ID to represent this category in-game"
+                                                type="text"
+                                                errorMessage="Enter Gui Item"
+                                                validate={{ required: { value: false } }}
+                                            />
+                                        </Col>
+                                    </Row>
+                                </AvForm>
+                            </CardBody>
+                        </Card>
+                        <Card>
+                            <CardBody>
+                                    <ListGroup>
+                                        <ListGroupItem>
+                                            <Row>
+                                                <Col xl={11}>
+                                                    <h4>Disable this category and remove it from the webstore. </h4>
                                                 </Col>
+                                                <Col xl={1}>
+                                                    <Switch
+                                                        uncheckedIcon={Offsymbol("No")}
+                                                        checkedIcon={OnSymbol("Yes")}
+                                                        onColor="#02a499"
+                                                        onChange={() =>
+                                                        this.setState({  switch1: !this.state.switch1 })
+                                                        }
+                                                        checked={this.state.switch1}
+                                                        className="mr-1 mt-1"
+                                                    />
+                                                </Col>                      
                                             </Row>
-                                            );
-                                        }):null
-                                    }
-                                    
+                                        </ListGroupItem> 
+                                        <ListGroupItem>
+                                            <Row>
+                                                <Col xl={11}>
+                                                    <h4> Cumulate the purchases inside of this category.  </h4>
+                                                </Col>
+                                                <Col xl={1}>
+                                                    <Switch
+                                                        uncheckedIcon={Offsymbol("No")}
+                                                        checkedIcon={OnSymbol("Yes")}
+                                                        onColor="#02a499"
+                                                        onChange={() =>
+                                                        this.setState({  switch2: !this.state.switch2 })
+                                                        }
+                                                        checked={this.state.switch2}
+                                                        className="mr-1 mt-1"
+                                                    />
+                                                </Col>                      
+                                            </Row>
+                                        </ListGroupItem> 
+                                        <ListGroupItem>
+                                            <Row>
+                                                <Col xl={11}>
+                                                    <h4> Disable packages that have a lower price than the current purchased package. (Requires Cumulative)  </h4>
+                                                </Col>
+                                                <Col xl={1}>
+                                                    <Switch
+                                                        uncheckedIcon={Offsymbol("No")}
+                                                        checkedIcon={OnSymbol("Yes")}
+                                                        onColor="#02a499"
+                                                        onChange={() =>
+                                                        this.setState({  switch3: !this.state.switch3 })
+                                                        }
+                                                        checked={this.state.switch3}
+                                                        className="mr-1 mt-1"
+                                                    />
+                                                </Col>                      
+                                            </Row>
+                                        </ListGroupItem> 
+                                        <ListGroupItem>
+                                            <Row>
+                                                <Col xl={11}>
+                                                    <h4> Only allow the customer to purchase one package from this category.  </h4>
+                                                </Col>
+                                                <Col xl={1}>
+                                                    <Switch
+                                                        uncheckedIcon={Offsymbol("No")}
+                                                        checkedIcon={OnSymbol("Yes")}
+                                                        onColor="#02a499"
+                                                        onChange={() =>
+                                                        this.setState({  switch4: !this.state.switch4 })
+                                                        }
+                                                        checked={this.state.switch4}
+                                                        className="mr-1 mt-1"
+                                                    />
+                                                </Col>                      
+                                            </Row>
+                                        </ListGroupItem> 
+                                        <ListGroupItem>
+                                            <Row>
+                                                <Col xl={11}>
+                                                    <h4>Delete pending expiry commands of other packages in this category upon a new purchase.  </h4>
+                                                </Col>
+                                                <Col xl={1}>
+                                                    <Switch
+                                                        uncheckedIcon={Offsymbol("No")}
+                                                        checkedIcon={OnSymbol("Yes")}
+                                                        onColor="#02a499"
+                                                        onChange={() =>
+                                                        this.setState({  switch5: !this.state.switch5 })
+                                                        }
+                                                        checked={this.state.switch5}
+                                                        className="mr-1 mt-1"
+                                                    />
+                                                </Col>                      
+                                            </Row>
+                                        </ListGroupItem> 
+                                        <ListGroupItem>
+                                            <Row>
+                                                <Col xl={11}>
+                                                    <h4> Add any remaining time of other purchased packages in this category onto new purchases. </h4>
+                                                </Col>
+                                                <Col xl={1}>
+                                                    <Switch
+                                                        uncheckedIcon={Offsymbol("No")}
+                                                        checkedIcon={OnSymbol("Yes")}
+                                                        onColor="#02a499"
+                                                        onChange={() =>
+                                                        this.setState({  switch6: !this.state.switch6 })
+                                                        }
+                                                        checked={this.state.switch6}
+                                                        className="mr-1 mt-1"
+                                                    />
+                                                </Col>                      
+                                            </Row>
+                                        </ListGroupItem> 
+                                        <ListGroupItem>
+                                            <Row>
+                                                <Col xl={11}>
+                                                    <h4> Order the packages on the webstore in this category by price.  </h4>
+                                                </Col>
+                                                <Col xl={1}>
+                                                    <Switch
+                                                        uncheckedIcon={Offsymbol("No")}
+                                                        checkedIcon={OnSymbol("Yes")}
+                                                        onColor="#02a499"
+                                                        onChange={() =>
+                                                        this.setState({  switch7: !this.state.switch7 })
+                                                        }
+                                                        checked={this.state.switch7}
+                                                        className="mr-1 mt-1"
+                                                    />
+                                                </Col>                      
+                                            </Row>
+                                        </ListGroupItem> 
+                                    </ListGroup> 
                                     <Row>
                                         <Col xl="12">
                                             <FormGroup className="mb-0">
@@ -129,7 +329,6 @@ class CategoryCreate extends Component {
                                             </FormGroup>
                                         </Col>
                                     </Row>
-                                </AvForm>
                             </CardBody>
                         </Card>
             </React.Fragment>
