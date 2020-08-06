@@ -21,7 +21,6 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 //Import Images
 import layout1 from "../../assets/images/layouts/layout-1.jpg";
 import layout2 from "../../assets/images/layouts/layout-2.jpg";
-import layout3 from "../../assets/images/layouts/layout-3.jpg";
 
 import "./rightbar.scss";
 
