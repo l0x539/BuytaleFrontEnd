@@ -176,7 +176,7 @@ const authProtectedRoutes = [
   { path: "/basketsettings/add-to-cart-redirect", component: AddToBasketRedirect },
 
   { path: "/settings/translations", component: Translations },
-  { path: "/design/currency", component: Currency },
+  { path: "/currency", component: Currency },
 
   // Webstore => Emails
   { path: "/emailsettings/storenote", component: StoreNote },

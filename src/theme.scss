@@ -1,13 +1,23 @@
 // Light Theme
+
 html.white {
     @import "./assets/scss/bootstrap.scss";
     @import "./assets/scss/app.scss";
+    .page-content {
+        padding-bottom: 100%;
+    }
 }
+
+
 
 html.dark {
     @import "./assets/scss/bootstrap-dark.scss";
     @import "./assets/scss/app-dark.scss";
+    .page-content {
+        padding-bottom: 100%;
+    }
 }
+
 
 /*
 * @import "./assets/scss/bootstrap.scss";
