@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Alert,Button, Card, CardBody } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {  registerUser, clearError, clearErrorLogin} from '../../store/actions';
 import logodark from "../../assets/images/logo-dark.png";
 import { AvForm, AvField } from 'availity-reactstrap-validation';
+import { isUserAuthenticated } from '../../helpers/authUtils';
 
 class Pagesregister extends Component {
 
@@ -19,7 +20,8 @@ class Pagesregister extends Component {
     }
 
     handleSubmit(event, values) {
-        this.props.registerUser(values)
+        this.props.registerUser(values);
+        console.log(this.props.user)
     }
 
     componentDidMount()
@@ -30,7 +32,7 @@ class Pagesregister extends Component {
 
 
     render() {
-
+        if (isUserAuthenticated()) return <Redirect to={{ pathname: "/", state: { from: this.props.location } }} exact />
         return (
             <React.Fragment>
                 <div className="account-pages my-5 pt-sm-5">
@@ -44,7 +46,7 @@ class Pagesregister extends Component {
                                         </h3>
                                         <div className="p-3">
                                             <h4 className="text-muted font-size-18 mb-1 text-center">Free Register</h4>
-                                            <p className="text-muted text-center">Get your free Lexa account now.</p>
+                                            <p className="text-muted text-center">Get your free Buytale account now.</p>
                                             {this.props.user && <Alert color="success">
                                            Registration Done Successfully.</Alert>}
 
@@ -55,17 +57,21 @@ class Pagesregister extends Component {
 
                                                 <div className="form-group">
                                                     <label htmlFor="useremail">Email</label>
-                                                    <AvField type="email" className="form-control" name="useremail" placeholder="Enter email"/>
+                                                    <AvField type="email" className="form-control" name="email" placeholder="Enter email"/>
                                                 </div>
 
                                                 <div className="form-group">
-                                                    <label htmlFor="username">Username</label>
-                                                    <AvField type="text" className="form-control" name="username" placeholder="Enter username"/>
+                                                    <label htmlFor="username">First Name</label>
+                                                    <AvField type="text" className="form-control" name="firstname" placeholder="Enter username"/>
+                                                </div>
+                                                <div className="form-group">
+                                                    <label htmlFor="username">Last Name</label>
+                                                    <AvField type="text" className="form-control" name="lastname" placeholder="Enter username"/>
                                                 </div>
 
                                                 <div className="form-group">
                                                     <label htmlFor="userpassword">Password</label>
-                                                    <AvField type="password" className="form-control" name="userpassword" placeholder="Enter password"/>
+                                                    <AvField type="password" className="form-control" name="password" placeholder="Enter password"/>
                                                 </div>
 
                                                 <div className="form-group row mt-4">
@@ -76,7 +82,7 @@ class Pagesregister extends Component {
 
                                                 <div className="form-group mb-0 row">
                                                     <Col xs="12" className="mt-4">
-                                                        <p className="text-muted mb-0 font-size-14">By registering you agree to the Lexa <Link to="#" className="text-primary">Terms of Use</Link></p>
+                                                        <p className="text-muted mb-0 font-size-14">By registering you agree to the Buytale <Link to="#" className="text-primary">Terms of Use</Link></p>
                                                     </Col>
                                                 </div>
                                             </AvForm>
@@ -85,7 +91,7 @@ class Pagesregister extends Component {
                                 </Card>
                                 <div className="mt-5 text-center">
                                     <p>Already have an account ? <Link to="/login" className="text-primary"> Login </Link> </p>
-                                    <p>© 2018 - 2020 Lexa. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                                    <p>© 2018 - 2020 Buytale. Crafted with <i className="mdi mdi-heart text-danger"></i> by HytaleHub LLC</p>
                                 </div>
                             </Col>
                         </Row>

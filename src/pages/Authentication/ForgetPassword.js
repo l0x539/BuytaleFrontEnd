@@ -34,7 +34,7 @@ class ForgetPassword extends Component {
                                         <div className="p-3">
                                             <h4 className="text-muted font-size-18 mb-3 text-center">Reset Password</h4>
                                             {this.props.message !== null ?
-                                                <Alert color="success">Password Reset successfull</Alert>
+                                                <Alert color="success">A reset email will be sent to you, check your email.</Alert>
                                             :
                                                 <Alert color="info">Enter your Email and instructions will be sent to you!</Alert>
                                             }
@@ -61,7 +61,7 @@ class ForgetPassword extends Component {
                                 </Card>
                                 <div className="mt-5 text-center">
                                     <p>Remember It ? <Link to="/login" className="text-primary"> Sign In Here </Link> </p>
-                                    <p>© 2018 - 2020 Lexa. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                                    <p>© 2018 - 2020 Buytale. Crafted with <i className="mdi mdi-heart text-danger"></i> by HytaleHub LLC</p>
                                 </div>
                             </Col>
                         </Row>

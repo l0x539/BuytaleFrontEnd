@@ -22,7 +22,7 @@ class PagesDirectory extends Component {
         super(props);
         this.state = {
             breadcrumbItems : [
-                { title : "Lexa", link : "#" },
+                { title : "Buytale", link : "#" },
                 { title : "Pages", link : "#" },
                 { title : "Directory", link : "#" },
             ],

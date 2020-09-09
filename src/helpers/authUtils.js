@@ -23,6 +23,17 @@ const isUserAuthenticated = () => {
     return getLoggedInUser() !== null;
 }
 
+// Get User
+const getUser = (url) => {
+    return axios.post(url).then(response => {
+        if (response.status === 400 || response.status === 500)
+            throw response.data;
+        return response.data;
+    }).catch(err => {
+        throw err[1];
+    });
+}
+
 // Register Method
 const postRegister = (url, data) => {
     return axios.post(url, data).then(response => {
@@ -67,4 +78,4 @@ const postForgetPwd = (url, data) => {
 }
 
 
-export { setLoggeedInUser, getLoggedInUser, isUserAuthenticated, postRegister, postLogin, postForgetPwd }
+export { setLoggeedInUser, getLoggedInUser, getUser, isUserAuthenticated, postRegister, postLogin, postForgetPwd }

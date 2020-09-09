@@ -25,7 +25,7 @@ class Pages404 extends Component {
                                 </CardBody>
                             </Card>
                             <div className="mt-5 text-center">
-                                <p>©2020 Lexa. Crafted with <i className="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                                <p>©2020 Buytale. Crafted with <i className="mdi mdi-heart text-danger"></i> by HytaleHub LLC</p>
                             </div>
                         </Col>
                     </Row>

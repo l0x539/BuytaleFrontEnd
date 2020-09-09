@@ -13,9 +13,9 @@ import NonAuthLayout from "./component/NonAuthLayout/NonAuthLayout";
 import "./theme.scss";
 
 //Fake backend
-import fakeBackend from './helpers/fakeBackend';
+//import fakeBackend from './helpers/fakeBackend';
 
-fakeBackend();
+//fakeBackend();
 class App extends Component {
   constructor(props) {
     super(props);

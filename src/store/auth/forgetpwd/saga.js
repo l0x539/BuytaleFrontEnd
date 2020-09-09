@@ -10,7 +10,7 @@ import { postForgetPwd } from '../../../helpers/authUtils';
 //If user is login then dispatch redux action's are directly from here.
 function* forgetUser({ payload: { username, history } }) {
         try {
-            const response = yield call(postForgetPwd, '/forget-pwd', {email: username});
+            const response = yield call(postForgetPwd, '/api/v1/forgot-password', {email: username});
             if (response) {
                 yield put(
                     forgetUserSuccessful(

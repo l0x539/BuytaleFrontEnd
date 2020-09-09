@@ -240,7 +240,8 @@ const authProtectedRoutes = [
   { path: "/accountsettings/tfa", component: Tfa },
   { path: "/profile/emails", component: Emails },
 
-  { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> }
+  { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },
+  { path: "*", component: Pages404 }
 ];
 
 const publicRoutes = [

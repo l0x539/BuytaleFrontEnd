@@ -5,12 +5,13 @@ import { REGISTER_USER } from './actionTypes';
 import { registerUserSuccessful, apiError } from './actions';
 
 //AUTH related methods
-import { postRegister } from '../../../helpers/authUtils';
+import { setLoggeedInUser, postRegister } from '../../../helpers/authUtils';
 
 // Is user register successfull then direct plot user in redux.
 function* registerUser({ payload: { user } }) {
     try {
-        const response = yield call(postRegister, '/post-register', user);
+        const response = yield call(postRegister, '/api/v1/register', user);
+        setLoggeedInUser(response[0]);
         yield put(registerUserSuccessful(response));
     } catch (error) {
         yield put(apiError(error));

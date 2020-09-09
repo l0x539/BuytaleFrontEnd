@@ -9,6 +9,7 @@ import Breadcrumb from "./Breadcrumb/reducer";
 import Account from './auth/register/reducer';
 import Login from './auth/login/reducer';
 import Forget from './auth/forgetpwd/reducer';
+import Getuser from './auth/getuser/reducer';
 
 const rootReducer = combineReducers({
 
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
     // Authentication
     Account,
     Login,
-    Forget
+    Forget,
+    Getuser,
 
 });
 

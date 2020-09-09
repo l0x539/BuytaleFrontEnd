@@ -10,8 +10,13 @@ class Logout extends Component {
     componentDidMount() {
      
         // Remove all Item from localstorage and redirect to login page
-        localStorage.removeItem('user');
-        this.props.history.push('/login');
+        fetch("/api/v1/logout", {
+            credentials: "same-origin"
+          }).then(() => {
+            localStorage.removeItem('user');
+            this.props.history.push('/login');
+          }).catch(err => "Couldn't logout");
+        
     }
 
     render() {

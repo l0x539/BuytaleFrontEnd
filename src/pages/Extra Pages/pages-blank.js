@@ -10,7 +10,7 @@ class PagesBlank extends Component {
         super(props);
         this.state = {
             breadcrumbItems : [
-                { title : "Lexa", link : "#" },
+                { title : "Buytale", link : "#" },
                 { title : "Pages", link : "#" },
                 { title : "Blank page", link : "#" },
             ],
