@@ -13,6 +13,22 @@ const setLoggeedInUser = (user) => {
 //     return null;
 // }
 
+const isUserAuth = () => {
+    return axios.get("/api/v1/loggedin").then(response => {
+        if (response.status === 400 || response.status === 500)
+            return false
+        return true;
+    }).catch(err => {
+        return false
+    });
+}
+
+const deleteUserLocalStorage = () => {
+    localStorage.removeItem("user");
+    axios.get("/api/v1/logout").then(r => null)
+    .catch(err => null);
+}
+
 const getLoggedInUser = () => {
         if(!localStorage.getItem('user')) return null;
         return JSON.parse(localStorage.getItem('user'));
@@ -78,4 +94,4 @@ const postForgetPwd = (url, data) => {
 }
 
 
-export { setLoggeedInUser, getLoggedInUser, getUser, isUserAuthenticated, postRegister, postLogin, postForgetPwd }
+export { isUserAuth, deleteUserLocalStorage, setLoggeedInUser, getLoggedInUser, getUser, isUserAuthenticated, postRegister, postLogin, postForgetPwd }

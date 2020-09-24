@@ -3,11 +3,13 @@ import { Container, Row, Col, Card, CardBody, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 import logodark from "../../assets/images/logo-dark.png";
-import { randomAvatar } from '../../helpers/randomAvatar'
+import { getAvatar } from '../../helpers/getAvatar'
+import { getUser } from '../../helpers/getUser'
 
 class LockScreen extends Component {
 
     render() {
+        const user = getUser();
         return (
             <React.Fragment>
                 <div className="account-pages my-5 pt-sm-5">
@@ -25,12 +27,13 @@ class LockScreen extends Component {
                                             <AvForm className="form-horizontal mt-4">
 
                                                 <div className="user-thumb text-center mb-4">
-                                                    <img src={randomAvatar()} className="rounded-circle avatar-md img-thumbnail" alt="thumbnail"/>
-                                                    <h6 className="font-size-16 mt-3">Robert Smith</h6>
+                                                    <img src={getAvatar()} className="rounded-circle avatar-md img-thumbnail" alt="thumbnail"/>
+                                                    <h6 className="font-size-16 mt-3">{user.firstname + " " + user.lastname}</h6>
                                                 </div>
 
                                                 <div className="form-group">
                                                     <label htmlFor="userpassword">Password</label>
+                                                    <AvField name="email" className="form-control" type="hidden" value={user.email}/>
                                                     <AvField name="password" className="form-control" type="password" placeholder="Enter password"/>
                                                 </div>
 

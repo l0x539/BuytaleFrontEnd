@@ -14,7 +14,7 @@ class Logout extends Component {
             credentials: "same-origin"
           }).then(() => {
             localStorage.removeItem('user');
-            this.props.history.push('/login');
+            window.location = '/login';
           }).catch(err => "Couldn't logout");
         
     }

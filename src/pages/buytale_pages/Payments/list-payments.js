@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { Card, CardBody, CardText, Badge, Button, Col, Row, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { MDBDataTable } from 'mdbreact';
 
-import { randomAvatar } from "../../../helpers/randomAvatar"
+import { getAvatar } from "../../../helpers/getAvatar"
 
 class ListPayments extends Component {
     constructor(props) {
         super(props);
         this.state = {
             transactions : [
-                { avatar :  <div><img src={randomAvatar()} alt="user" className="avatar-xs rounded-circle mr-2" />Nico</div>, status : <Badge color={"success"} className="mr-1">Complete</Badge>, amount : "0", date : "1/04/2020", name: "Nico OxSEG" },  // success, warning, danger
+                { avatar :  <div><img src={getAvatar()} alt="user" className="avatar-xs rounded-circle mr-2" />Nico</div>, status : <Badge color={"success"} className="mr-1">Complete</Badge>, amount : "0", date : "1/04/2020", name: "Nico OxSEG" },  // success, warning, danger
             ],
             modal_standard: false,
         }

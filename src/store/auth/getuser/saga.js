@@ -11,7 +11,7 @@ import { setLoggeedInUser,getUser } from '../../../helpers/authUtils';
 function* getuser ({ payload: {history} }) {
     console.log("hi");
     try {
-        const response = yield call(getUser, '/api/v1/user');
+        const response = yield call(getUser, '/api/v1/@me');
         setLoggeedInUser(response[0]);
         yield put(getUserSuccessful(response[0]));
     } catch (error) {

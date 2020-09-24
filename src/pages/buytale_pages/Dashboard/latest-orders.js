@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Table, Card, Badge, Button } from "reactstrap";
 
-import { randomAvatar } from '../../../helpers/randomAvatar'
+import { getAvatar } from '../../../helpers/getAvatar'
 
 class LatestOrders extends Component {
     constructor(props) {
         super(props);
         this.state = {
             orders : [
-                { imgUrl : randomAvatar(), id : "1", name : "Nico 0xSEG", status : "Delivered", amount : "0", date : "1/04/2020", color : "success" }, // success, warning, danger
+                { imgUrl : getAvatar(), id : "1", name : "Nico 0xSEG", status : "Delivered", amount : "0", date : "1/04/2020", color : "success" }, // success, warning, danger
             ]
         }
     }
