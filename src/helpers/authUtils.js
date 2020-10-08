@@ -41,7 +41,7 @@ const isUserAuthenticated = () => {
 
 // Get User
 const getUser = (url) => {
-    return axios.post(url).then(response => {
+    return axios.get(url).then(response => {
         if (response.status === 400 || response.status === 500)
             throw response.data;
         return response.data;
@@ -55,7 +55,7 @@ const postRegister = (url, data) => {
     return axios.post(url, data).then(response => {
         if (response.status >= 200 || response.status <= 299)
             return response.data;
-        throw response.data;
+        return response.data;
     }).catch(err => {
         var message;
         if (err.response && err.response.status ) {
@@ -66,7 +66,7 @@ const postRegister = (url, data) => {
                 default: message = err[1]; break;
             }
         }
-        throw message;
+        return message;
     });
 
 }
@@ -74,11 +74,12 @@ const postRegister = (url, data) => {
 // Login Method
 const postLogin = (url, data) => {
     return axios.post(url, data).then(response => {
+        console.log(response.status);
         if (response.status === 400 || response.status === 500)
-            throw response.data;
+            return response.data;
         return response.data;
     }).catch(err => {
-        throw err[1];
+        return err[1];
     });
 }
 

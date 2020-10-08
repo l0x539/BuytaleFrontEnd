@@ -11,6 +11,7 @@ import { setLoggeedInUser, postRegister } from '../../../helpers/authUtils';
 function* registerUser({ payload: { user } }) {
     try {
         const response = yield call(postRegister, '/api/v1/register', user);
+        if (response === undefined) throw "Couldn't register.";
         setLoggeedInUser(response[0]);
         yield put(registerUserSuccessful(response));
     } catch (error) {

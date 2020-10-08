@@ -11,9 +11,11 @@ import { setLoggeedInUser,postLogin } from '../../../helpers/authUtils';
 function* loginUser({ payload: { username, password, history } }) {
         try {
             const response = yield call(postLogin, '/api/v1/login', {email: username, password: password});
+            console.log(response)
+            if (response === undefined) throw "Couldnt loggin";
             setLoggeedInUser(response);
             yield put(loginUserSuccessful(response));
-            // console.log(ans);
+            
             history.push('/dashboard');
         } catch (error) {
             yield put(apiLoginError(error));

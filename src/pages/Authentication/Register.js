@@ -3,7 +3,7 @@ import { Container, Row, Col, Alert,Button, Card, CardBody } from 'reactstrap';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {  registerUser, clearError, clearErrorLogin} from '../../store/actions';
-import logodark from "../../assets/images/logo-dark.png";
+import logodark from "../../assets/images/logo-light.png";
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 import { isUserAuthenticated } from '../../helpers/authUtils';
 

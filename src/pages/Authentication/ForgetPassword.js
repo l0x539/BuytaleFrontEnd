@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col, Card, CardBody, Alert,Button } from 'reactstrap';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import logodark from "../../assets/images/logo-dark.png";
+import logodark from "../../assets/images/logo-light.png";
 import { forgetUser } from '../../store/actions';
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 

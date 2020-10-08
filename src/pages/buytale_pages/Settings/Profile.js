@@ -57,6 +57,20 @@ class Profile extends Component {
         this.setState({ selectedFile: file });
     };
 
+    handleChange = (e) => {
+        const data = {
+            firstname: document.getElementById("firstname").value.trim() === ""?undefined:document.getElementById("firstname").value,
+            lastname: document.getElementById("lastname").value.trim() === ""?undefined:document.getElementById("lastname").value,
+            more_emails: document.getElementById("more_emails").value.trim() === ""?undefined:document.getElementById("more_emails").value,
+        }
+        axios.put("/api/v1/editprofile", data).then(res => { // then print response status
+            this.setState({status: "success"})
+         }).catch(err => {
+             console.log(err);
+             this.setState({status: "error"})
+         })
+    }
+
     handleUpdate = (e) => {
         e.preventDefault();
         const data = new FormData();
@@ -77,6 +91,20 @@ class Profile extends Component {
         const user = getUser();
         return (
             <React.Fragment>
+                            {this.state.status === "error"? 
+                            <Card>
+                                <CardBody color="error">
+                                    "Error, couldn't update"
+                                </CardBody>
+                            </Card>
+                            :undefined}
+                            {this.state.status === 200? 
+                            <Card>
+                                <CardBody color="error">
+                                    "Error, couldn't update"
+                                </CardBody>
+                            </Card>
+                            :undefined}
                             <Card>
                                 <CardBody>
                                     <h4 className="card-title">Edit Profile</h4>
@@ -108,6 +136,9 @@ class Profile extends Component {
                                                 email: { value: true }
                                             }}
                                         />
+                                        <div className="text-center mt-4">
+                                            <Button type="button" color="primary" onClick={this.handleChange} className="waves-effect waves-light">Update</Button>
+                                        </div>
                                         
                                     </AvForm>
                                 </CardBody>

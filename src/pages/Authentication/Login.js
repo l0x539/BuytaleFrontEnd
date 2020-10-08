@@ -50,7 +50,7 @@ class Pageslogin extends Component {
                                                 {this.props.loginError}</Alert>}
                                             <AvForm className="form-horizontal mt-4" onValidSubmit={this.handleSubmit}>
 
-                                                <label htmlFor="username">Username</label>
+                                                <label htmlFor="username">Email</label>
                                                 <AvField name="username" placeholder="Enter Email" value={ this.state.username }  type="text" />
 
                                                 <label htmlFor="userpassword">Password</label>
