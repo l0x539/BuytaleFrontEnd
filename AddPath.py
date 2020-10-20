@@ -5,7 +5,7 @@ import sys
 # Add path file
 input("Don't Run this unless you know what its doing! ")
 
-_PROJECT_DIR = "/home/0x539/github-repos/BuytaleFrontEnd/"
+_PROJECT_DIR = "/home/nyanboy/github-repos/BuytaleFrontEnd/"
 _OS_SEP = "\\" if os.name == "nt" else "/"
 
 def make_path(path):

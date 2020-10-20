@@ -125,6 +125,9 @@ import Log from '../pages/buytale_pages/Settings/Log';
 import Tfa from '../pages/buytale_pages/Settings/Tfa';
 import Emails from '../pages/buytale_pages/Settings/Emails';
 
+// User
+import UserProfile from '../pages/buytale_pages/User/UserProfile';
+
 const authProtectedRoutes = [
   // DashBoard
   { path: "/dashboard", component: Dashboard },
@@ -239,6 +242,9 @@ const authProtectedRoutes = [
   { path: "/profile/log", component: Log },
   { path: "/accountsettings/tfa", component: Tfa },
   { path: "/profile/emails", component: Emails },
+
+  // User
+  { path: "/User/Profile", component: UserProfile },
 
   { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },
   { path: "*", component: Pages404 }

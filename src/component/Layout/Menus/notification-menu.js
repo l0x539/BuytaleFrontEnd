@@ -11,11 +11,11 @@ class NotificationMenu extends Component {
         super(props);
         this.state = {
             notifications : [
-                { id : 1, icon : "mdi-cart-outline", title : "Your order is placed", desc : "If several languages coalesce the grammar" },
-                { id : 2, icon : "mdi-message", title : "New Message received", desc : "You have 87 unread messages" },
-                { id : 3, icon : "mdi-glass-cocktail", title : "Your item is shipped", desc : "It is a long established fact that a reader will" },
-                { id : 4, icon : "mdi-cart-outline", title : "Your order is placed", desc : "Dummy text of the printing and typesetting industry." },
-                { id : 5, icon : "mdi-message", title : "New Message received", desc : "You have 87 unread messages" },
+                // { id : 1, icon : "mdi-cart-outline", title : "Your order is placed", desc : "If several languages coalesce the grammar" },
+                // { id : 2, icon : "mdi-message", title : "New Message received", desc : "You have 87 unread messages" },
+                // { id : 3, icon : "mdi-glass-cocktail", title : "Your item is shipped", desc : "It is a long established fact that a reader will" },
+                // { id : 4, icon : "mdi-cart-outline", title : "Your order is placed", desc : "Dummy text of the printing and typesetting industry." },
+                // { id : 5, icon : "mdi-message", title : "New Message received", desc : "You have 87 unread messages" },
             ],
             menu: false,
         };
@@ -44,13 +44,13 @@ class NotificationMenu extends Component {
                                 <div className="p-3">
                                     <Row className="align-items-center">
                                         <Col>
-                                            <h5 className="m-0"> Notifications (258) </h5>
+                                            <h5 className="m-0"> Notifications ({this.state.notifications.length}) </h5>
                                         </Col>
                                     </Row>
                                 </div>
                                 <PerfectScrollbar style={{height : "230px"}}>
                                     {
-                                        this.state.notifications.map((notification, key) =>
+                                        this.state.notifications.length > 0?this.state.notifications.map((notification, key) =>
                                             <Link key={key} to="#" className="text-reset notification-item">
                                                 <Media>
                                                     <div className="avatar-xs mr-3">
@@ -66,8 +66,8 @@ class NotificationMenu extends Component {
                                                     </Media>
                                                 </Media>
                                             </Link>
-                                        )
-                                    } 
+                                        ):"Empty."
+                                    }
                             </PerfectScrollbar>
                             <div className="p-2 border-top">
                                 <Link className="btn btn-sm btn-link font-size-14 btn-block text-center" to="#">
